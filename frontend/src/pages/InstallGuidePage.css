@@ -1,0 +1,263 @@
+.install-guide-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: #FFF8E7;
+  min-height: 100vh;
+}
+
+.install-guide-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.install-guide-header h1 {
+  font-size: 2.5rem;
+  color: #654321;
+  margin-bottom: 0.5rem;
+}
+
+.install-guide-header p {
+  font-size: 1.2rem;
+  color: #8B4513;
+}
+
+.install-guide-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.install-guide-tabs button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border: 2px solid #4CAF50;
+  background: white;
+  color: #654321;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.install-guide-tabs button:hover {
+  background: linear-gradient(135deg, #4CAF50, #8B4513);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.install-guide-tabs button.active {
+  background: #4CAF50;
+  color: white;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.install-guide-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.install-guide-content h2 {
+  font-size: 2rem;
+  color: #4CAF50;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.install-steps {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.install-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: #FFF8E7;
+  border-radius: 12px;
+  border-left: 4px solid #4CAF50;
+  transition: transform 0.3s ease;
+}
+
+.install-step:hover {
+  transform: translateX(8px);
+}
+
+.step-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.step-content h3 {
+  font-size: 1.3rem;
+  color: #654321;
+  margin-bottom: 0.5rem;
+}
+
+.step-content p {
+  font-size: 1rem;
+  color: #8B4513;
+  line-height: 1.6;
+}
+
+.install-manual {
+  padding: 1rem;
+  background: #E8F5E9;
+  border-radius: 8px;
+  border-left: 4px solid #4CAF50;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #654321;
+}
+
+.install-note {
+  padding: 1rem;
+  background: #FFF3E0;
+  border-radius: 8px;
+  border-left: 4px solid #FF9800;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #654321;
+  font-weight: 600;
+}
+
+.install-benefits {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.install-benefits h2 {
+  font-size: 2rem;
+  color: #4CAF50;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #FFF8E7;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+.benefit-icon {
+  font-size: 2rem;
+}
+
+.benefit-text {
+  font-size: 1.1rem;
+  color: #654321;
+  font-weight: 600;
+}
+
+.install-faq {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.install-faq h2 {
+  font-size: 2rem;
+  color: #4CAF50;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.faq-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.faq-item {
+  padding: 1.5rem;
+  background: #FFF8E7;
+  border-radius: 12px;
+  border-left: 4px solid #4CAF50;
+}
+
+.faq-item h3 {
+  font-size: 1.2rem;
+  color: #654321;
+  margin-bottom: 0.5rem;
+}
+
+.faq-item p {
+  font-size: 1rem;
+  color: #8B4513;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .install-guide-page {
+    padding: 1rem 0.5rem;
+  }
+
+  .install-guide-header h1 {
+    font-size: 2rem;
+  }
+
+  .install-guide-header p {
+    font-size: 1rem;
+  }
+
+  .install-guide-tabs {
+    gap: 0.5rem;
+  }
+
+  .install-guide-tabs button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .install-guide-content,
+  .install-benefits,
+  .install-faq {
+    padding: 1.5rem;
+  }
+
+  .install-guide-content h2,
+  .install-benefits h2,
+  .install-faq h2 {
+    font-size: 1.5rem;
+  }
+
+  .install-step {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .step-icon {
+    font-size: 2.5rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
