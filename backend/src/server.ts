@@ -27,13 +27,15 @@ const app = express();
 const PORT = parseInt(process.env.PORT || '5000', 10);
 
 // Middleware
-// CORS configuration for development - allow multiple origins
+// CORS configuration - allow both development and production origins
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:3001',
   'http://10.54.8.99:3000',
-  'http://10.54.8.99:3001'
-];
+  'http://10.54.8.99:3001',
+  'https://xudoyorkholov-bit.github.io',
+  process.env.CORS_ORIGIN
+].filter(Boolean); // Remove undefined values
 
 app.use(cors({
   origin: (origin, callback) => {
@@ -52,6 +54,8 @@ app.use(cors({
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
+      console.log('❌ CORS blocked origin:', origin);
+      console.log('✅ Allowed origins:', allowedOrigins);
       callback(new Error('Not allowed by CORS'));
     }
   },
