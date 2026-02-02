@@ -147,21 +147,6 @@ const translations = {
     'home.regularCustomer': 'Doimiy mijoz',
     'home.viewAllReviews': 'Barcha fikrlarni ko\'rish',
     
-    // Reservation Page
-    'reservation.title': 'Bron qilish',
-    'reservation.date': 'Sana',
-    'reservation.time': 'Vaqt',
-    'reservation.guests': 'Mehmonlar soni',
-    'reservation.submit': 'Yuborish',
-    
-    // Contact Page
-    'contact.title': 'Aloqa',
-    'contact.phone': 'Telefon',
-    'contact.email': 'Email',
-    'contact.address': 'Manzil',
-    'contact.message': 'Xabar',
-    'contact.send': 'Yuborish',
-    
     // Footer
     'footer.description': 'Oshpazlik san\'atidan bahramand bo\'ling. Biz har bir taomni muhabbat bilan tayyorlaymiz.',
     'footer.quickLinks': 'Tezkor havolalar',
@@ -378,21 +363,6 @@ const translations = {
     'home.reviewAuthor': 'Азиза Каримова',
     'home.regularCustomer': 'Постоянный клиент',
     'home.viewAllReviews': 'Посмотреть все отзывы',
-    
-    // Reservation Page
-    'reservation.title': 'Бронирование',
-    'reservation.date': 'Дата',
-    'reservation.time': 'Время',
-    'reservation.guests': 'Количество гостей',
-    'reservation.submit': 'Отправить',
-    
-    // Contact Page
-    'contact.title': 'Контакты',
-    'contact.phone': 'Телефон',
-    'contact.email': 'Email',
-    'contact.address': 'Адрес',
-    'contact.message': 'Сообщение',
-    'contact.send': 'Отправить',
     
     // Footer
     'footer.description': 'Наслаждайтесь кулинарным искусством. Мы готовим каждое блюдо с любовью.',

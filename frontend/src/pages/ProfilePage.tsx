@@ -215,7 +215,7 @@ const ProfilePage: React.FC = () => {
     setShowToast(true);
   };
 
-  const handleSetDefault = (id: string) => {
+  const handleSetDefault = (id: number) => {
     setAddresses(addresses.map(addr => ({
       ...addr,
       isDefault: addr.id === id

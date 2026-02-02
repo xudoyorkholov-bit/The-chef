@@ -93,12 +93,11 @@ const TestimonialsPage: React.FC = () => {
         <div className="container">
           <h1 className="page-title">{t('testimonials.pageTitle')}</h1>
           <p className="page-subtitle">{t('testimonials.pageSubtitle')}</p>
-          <Button 
-            onClick={handleOpenReviewModal}
-            style={{ marginTop: '20px' }}
-          >
-            {t('testimonial.writeReview')}
-          </Button>
+          <div style={{ marginTop: '20px' }}>
+            <Button onClick={handleOpenReviewModal}>
+              {t('testimonial.writeReview')}
+            </Button>
+          </div>
         </div>
       </div>
 
