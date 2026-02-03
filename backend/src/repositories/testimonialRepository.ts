@@ -1,5 +1,5 @@
-import Testimonial from '../models/Testimonial';
-import { ITestimonial } from '../models/Testimonial';
+import Testimonial from '../models/Testimonial.js';
+import { ITestimonial } from '../models/Testimonial.js';
 
 const testimonialRepository = {
   async findAll(): Promise<ITestimonial[]> {

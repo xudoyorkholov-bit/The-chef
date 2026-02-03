@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { orderService } from '../services/orderService';
-import { CreateOrderRequest } from '../types';
+import { orderService } from '../services/orderService.js';
+import { CreateOrderRequest } from '../types/index.js';
 
 export const orderController = {
   // Foydalanuvchining buyurtmalarini olish

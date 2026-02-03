@@ -1,4 +1,4 @@
-import MenuItem from '../models/MenuItem';
+import MenuItem from '../models/MenuItem.js';
 const menuRepository = {
     async findAll() {
         return await MenuItem.find({ available: true }).sort({ category: 1, name: 1 });

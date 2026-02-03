@@ -1,4 +1,4 @@
-import Gallery from '../models/Gallery';
+import Gallery from '../models/Gallery.js';
 const galleryRepository = {
     async findAll() {
         return await Gallery.find().sort({ display_order: 1, created_at: -1 });

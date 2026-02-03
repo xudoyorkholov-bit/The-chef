@@ -1,5 +1,5 @@
-import MenuItem from '../models/MenuItem';
-import { IMenuItem } from '../models/MenuItem';
+import MenuItem from '../models/MenuItem.js';
+import { IMenuItem } from '../models/MenuItem.js';
 
 const menuRepository = {
   async findAll(): Promise<IMenuItem[]> {

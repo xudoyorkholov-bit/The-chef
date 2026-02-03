@@ -1,5 +1,5 @@
-import Reservation from '../models/Reservation';
-import { IReservation } from '../models/Reservation';
+import Reservation from '../models/Reservation.js';
+import { IReservation } from '../models/Reservation.js';
 
 const reservationRepository = {
   // Foydalanuvchining rezervatsiyalarini olish

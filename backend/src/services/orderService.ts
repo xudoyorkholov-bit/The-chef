@@ -1,6 +1,6 @@
-import orderRepository from '../repositories/orderRepository';
-import { IOrder } from '../models/Order';
-import { CreateOrderRequest } from '../types';
+import orderRepository from '../repositories/orderRepository.js';
+import { IOrder } from '../models/Order.js';
+import { CreateOrderRequest } from '../types/index.js';
 
 export const orderService = {
   // Foydalanuvchining buyurtmalarini olish

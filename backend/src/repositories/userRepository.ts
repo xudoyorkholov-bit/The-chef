@@ -1,5 +1,5 @@
-import User from '../models/User';
-import { IUser } from '../models/User';
+import User from '../models/User.js';
+import { IUser } from '../models/User.js';
 
 const userRepository = {
   async findAll(): Promise<IUser[]> {

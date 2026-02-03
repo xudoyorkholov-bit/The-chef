@@ -1,4 +1,4 @@
-import { orderService } from '../services/orderService';
+import { orderService } from '../services/orderService.js';
 export const orderController = {
     // Foydalanuvchining buyurtmalarini olish
     async getAll(req, res) {

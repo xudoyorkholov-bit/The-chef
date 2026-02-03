@@ -1,4 +1,4 @@
-import Reservation from '../models/Reservation';
+import Reservation from '../models/Reservation.js';
 const reservationRepository = {
     // Foydalanuvchining rezervatsiyalarini olish
     async findByUserId(userId) {

@@ -1,5 +1,5 @@
-import Gallery from '../models/Gallery';
-import { IGallery } from '../models/Gallery';
+import Gallery from '../models/Gallery.js';
+import { IGallery } from '../models/Gallery.js';
 
 const galleryRepository = {
   async findAll(): Promise<IGallery[]> {

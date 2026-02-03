@@ -1,4 +1,4 @@
-import Message from '../models/Message';
+import Message from '../models/Message.js';
 const messageRepository = {
     async findAll() {
         return await Message.find().sort({ created_at: -1 });

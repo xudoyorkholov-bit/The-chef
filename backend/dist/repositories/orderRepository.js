@@ -1,4 +1,4 @@
-import Order from '../models/Order';
+import Order from '../models/Order.js';
 const orderRepository = {
     // Foydalanuvchining buyurtmalarini olish
     async findByUserId(userId) {

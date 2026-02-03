@@ -1,4 +1,4 @@
-import User from '../models/User';
+import User from '../models/User.js';
 const userRepository = {
     async findAll() {
         return await User.find().sort({ created_at: -1 });

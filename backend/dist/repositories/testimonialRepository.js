@@ -1,4 +1,4 @@
-import Testimonial from '../models/Testimonial';
+import Testimonial from '../models/Testimonial.js';
 const testimonialRepository = {
     async findAll() {
         return await Testimonial.find({ status: 'approved' })

@@ -1,5 +1,5 @@
-import Order from '../models/Order';
-import { IOrder } from '../models/Order';
+import Order from '../models/Order.js';
+import { IOrder } from '../models/Order.js';
 
 const orderRepository = {
   // Foydalanuvchining buyurtmalarini olish

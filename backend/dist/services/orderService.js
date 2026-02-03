@@ -1,4 +1,4 @@
-import orderRepository from '../repositories/orderRepository';
+import orderRepository from '../repositories/orderRepository.js';
 export const orderService = {
     // Foydalanuvchining buyurtmalarini olish
     async getUserOrders(userId) {

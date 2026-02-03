@@ -1,5 +1,5 @@
-import Message from '../models/Message';
-import { IMessage } from '../models/Message';
+import Message from '../models/Message.js';
+import { IMessage } from '../models/Message.js';
 
 const messageRepository = {
   async findAll(): Promise<IMessage[]> {
