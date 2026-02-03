@@ -4,8 +4,8 @@ import userRepository from '../repositories/userRepository.js';
 import { User, RegisterRequest } from '../types/index.js';
 
 export class AuthService {
-  private readonly JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
-  private readonly JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '24h';
+  private readonly JWT_SECRET: string = process.env.JWT_SECRET || 'your-secret-key';
+  private readonly JWT_EXPIRES_IN: string = process.env.JWT_EXPIRES_IN || '24h';
 
   async register(data: RegisterRequest): Promise<{ token: string; user: Omit<User, 'password_hash'> }> {
     try {
@@ -35,9 +35,9 @@ export class AuthService {
 
       // Generate token
       const token = jwt.sign(
-        { id: user.id, username: user.username, role: user.role },
+        { id: user._id.toString(), username: user.username, role: user.role },
         this.JWT_SECRET,
-        { expiresIn: this.JWT_EXPIRES_IN }
+        { expiresIn: this.JWT_EXPIRES_IN } as jwt.SignOptions
       );
 
       // Convert Mongoose document to plain object
@@ -65,12 +65,12 @@ export class AuthService {
         throw new Error('Telefon raqam yoki parol noto\'g\'ri');
       }
 
-      await userRepository.updateLastLogin(user.id);
+      await userRepository.updateLastLogin(user._id.toString());
 
       const token = jwt.sign(
-        { id: user.id, username: user.username, role: user.role },
+        { id: user._id.toString(), username: user.username, role: user.role },
         this.JWT_SECRET,
-        { expiresIn: this.JWT_EXPIRES_IN }
+        { expiresIn: this.JWT_EXPIRES_IN } as jwt.SignOptions
       );
 
       // Convert Mongoose document to plain object

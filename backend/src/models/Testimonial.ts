@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface ITestimonial extends Document {
+  id: string;
   user_id: mongoose.Types.ObjectId;
   user_name: string;
   rating: number;
@@ -48,6 +49,15 @@ const TestimonialSchema = new Schema<ITestimonial>({
     default: Date.now
   }
 });
+
+// Virtual for id
+TestimonialSchema.virtual('id').get(function(this: ITestimonial) {
+  return this._id.toString();
+});
+
+// Ensure virtuals are included in JSON
+TestimonialSchema.set('toJSON', { virtuals: true });
+TestimonialSchema.set('toObject', { virtuals: true });
 
 // Update the updated_at timestamp before saving
 TestimonialSchema.pre('save', function() {

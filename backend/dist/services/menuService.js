@@ -85,8 +85,8 @@ export class MenuService {
     async updateMenuItem(id, data) {
         try {
             // Check if menu item exists
-            const exists = await menuRepository.exists(id);
-            if (!exists) {
+            const existingItem = await menuRepository.findById(id);
+            if (!existingItem) {
                 throw new Error('Menu item not found');
             }
             // Validate price if provided

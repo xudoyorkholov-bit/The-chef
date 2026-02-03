@@ -1,27 +1,21 @@
-import pool from '../config/database.js';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import connectDB from '../config/database.js';
 
 async function runMigration() {
   try {
     console.log('🔄 Running database migration...');
     
-    const schemaPath = path.join(__dirname, 'schema.sql');
-    const schema = fs.readFileSync(schemaPath, 'utf-8');
-    
-    await pool.query(schema);
+    // Connect to MongoDB
+    await connectDB();
     
     console.log('✅ Database migration completed successfully!');
-    console.log('📊 Tables created:');
+    console.log('📊 Collections will be created automatically by Mongoose:');
     console.log('   - users');
-    console.log('   - menu_items');
+    console.log('   - menuitems');
     console.log('   - reservations');
     console.log('   - messages');
-    console.log('   - gallery');
+    console.log('   - galleries');
+    console.log('   - orders');
+    console.log('   - testimonials');
     
     process.exit(0);
   } catch (error) {

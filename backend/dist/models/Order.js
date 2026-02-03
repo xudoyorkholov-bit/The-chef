@@ -74,6 +74,13 @@ const OrderSchema = new Schema({
         default: Date.now
     }
 });
+// Virtual for id
+OrderSchema.virtual('id').get(function () {
+    return this._id.toString();
+});
+// Ensure virtuals are included in JSON
+OrderSchema.set('toJSON', { virtuals: true });
+OrderSchema.set('toObject', { virtuals: true });
 OrderSchema.pre('save', function () {
     this.updated_at = new Date();
 });

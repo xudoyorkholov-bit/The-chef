@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface IReservation extends Document {
+  id: string;
   user_id?: string;
   customer_name: string;
   customer_email: string;
@@ -66,9 +67,17 @@ const ReservationSchema = new Schema<IReservation>({
   }
 });
 
-ReservationSchema.pre('save', function(next) {
+// Virtual for id
+ReservationSchema.virtual('id').get(function(this: IReservation) {
+  return this._id.toString();
+});
+
+// Ensure virtuals are included in JSON
+ReservationSchema.set('toJSON', { virtuals: true });
+ReservationSchema.set('toObject', { virtuals: true });
+
+ReservationSchema.pre('save', function() {
   this.updated_at = new Date();
-  next();
 });
 
 export default mongoose.model<IReservation>('Reservation', ReservationSchema);

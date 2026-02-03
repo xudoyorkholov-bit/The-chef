@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface IMessage extends Document {
+  id: string;
   name: string;
   email: string;
   subject: string;
@@ -39,5 +40,14 @@ const MessageSchema = new Schema<IMessage>({
     default: Date.now
   }
 });
+
+// Virtual for id
+MessageSchema.virtual('id').get(function(this: IMessage) {
+  return this._id.toString();
+});
+
+// Ensure virtuals are included in JSON
+MessageSchema.set('toJSON', { virtuals: true });
+MessageSchema.set('toObject', { virtuals: true });
 
 export default mongoose.model<IMessage>('Message', MessageSchema);

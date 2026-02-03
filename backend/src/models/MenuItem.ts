@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface IMenuItem extends Document {
+  id: string;
   name: string;
   name_ru?: string;
   description: string;
@@ -58,10 +59,18 @@ const MenuItemSchema = new Schema<IMenuItem>({
   }
 });
 
+// Virtual for id
+MenuItemSchema.virtual('id').get(function(this: IMenuItem) {
+  return this._id.toString();
+});
+
+// Ensure virtuals are included in JSON
+MenuItemSchema.set('toJSON', { virtuals: true });
+MenuItemSchema.set('toObject', { virtuals: true });
+
 // Update updated_at on save
-MenuItemSchema.pre('save', function(next) {
+MenuItemSchema.pre('save', function() {
   this.updated_at = new Date();
-  next();
 });
 
 export default mongoose.model<IMenuItem>('MenuItem', MenuItemSchema);

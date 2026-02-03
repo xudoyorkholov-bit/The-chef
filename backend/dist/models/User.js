@@ -64,4 +64,11 @@ const UserSchema = new Schema({
         type: Date
     }
 });
+// Virtual for id
+UserSchema.virtual('id').get(function () {
+    return this._id.toString();
+});
+// Ensure virtuals are included in JSON
+UserSchema.set('toJSON', { virtuals: true });
+UserSchema.set('toObject', { virtuals: true });
 export default mongoose.model('User', UserSchema);

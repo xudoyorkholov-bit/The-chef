@@ -29,4 +29,11 @@ const MessageSchema = new Schema({
         default: Date.now
     }
 });
+// Virtual for id
+MessageSchema.virtual('id').get(function () {
+    return this._id.toString();
+});
+// Ensure virtuals are included in JSON
+MessageSchema.set('toJSON', { virtuals: true });
+MessageSchema.set('toObject', { virtuals: true });
 export default mongoose.model('Message', MessageSchema);

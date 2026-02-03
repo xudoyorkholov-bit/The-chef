@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface IGallery extends Document {
+  id: string;
   title: string;
   image_url: string;
   thumbnail_url: string;
@@ -31,5 +32,14 @@ const GallerySchema = new Schema<IGallery>({
     default: Date.now
   }
 });
+
+// Virtual for id
+GallerySchema.virtual('id').get(function(this: IGallery) {
+  return this._id.toString();
+});
+
+// Ensure virtuals are included in JSON
+GallerySchema.set('toJSON', { virtuals: true });
+GallerySchema.set('toObject', { virtuals: true });
 
 export default mongoose.model<IGallery>('Gallery', GallerySchema);

@@ -50,8 +50,14 @@ const ReservationSchema = new Schema({
         default: Date.now
     }
 });
-ReservationSchema.pre('save', function (next) {
+// Virtual for id
+ReservationSchema.virtual('id').get(function () {
+    return this._id.toString();
+});
+// Ensure virtuals are included in JSON
+ReservationSchema.set('toJSON', { virtuals: true });
+ReservationSchema.set('toObject', { virtuals: true });
+ReservationSchema.pre('save', function () {
     this.updated_at = new Date();
-    next();
 });
 export default mongoose.model('Reservation', ReservationSchema);

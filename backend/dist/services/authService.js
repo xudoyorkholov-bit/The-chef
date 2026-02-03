@@ -29,7 +29,7 @@ export class AuthService {
                 role: 'customer'
             });
             // Generate token
-            const token = jwt.sign({ id: user.id, username: user.username, role: user.role }, this.JWT_SECRET, { expiresIn: this.JWT_EXPIRES_IN });
+            const token = jwt.sign({ id: user._id.toString(), username: user.username, role: user.role }, this.JWT_SECRET, { expiresIn: this.JWT_EXPIRES_IN });
             // Convert Mongoose document to plain object
             const userObj = user.toObject ? user.toObject() : user;
             const { password_hash: _, ...userWithoutPassword } = userObj;
@@ -50,8 +50,8 @@ export class AuthService {
             if (!isValidPassword) {
                 throw new Error('Telefon raqam yoki parol noto\'g\'ri');
             }
-            await userRepository.updateLastLogin(user.id);
-            const token = jwt.sign({ id: user.id, username: user.username, role: user.role }, this.JWT_SECRET, { expiresIn: this.JWT_EXPIRES_IN });
+            await userRepository.updateLastLogin(user._id.toString());
+            const token = jwt.sign({ id: user._id.toString(), username: user.username, role: user.role }, this.JWT_SECRET, { expiresIn: this.JWT_EXPIRES_IN });
             // Convert Mongoose document to plain object
             const userObj = user.toObject ? user.toObject() : user;
             const { password_hash, ...userWithoutPassword } = userObj;

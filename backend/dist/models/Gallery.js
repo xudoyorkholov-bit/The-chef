@@ -22,4 +22,11 @@ const GallerySchema = new Schema({
         default: Date.now
     }
 });
+// Virtual for id
+GallerySchema.virtual('id').get(function () {
+    return this._id.toString();
+});
+// Ensure virtuals are included in JSON
+GallerySchema.set('toJSON', { virtuals: true });
+GallerySchema.set('toObject', { virtuals: true });
 export default mongoose.model('Gallery', GallerySchema);

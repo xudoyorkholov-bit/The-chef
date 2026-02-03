@@ -8,6 +8,7 @@ export interface IOrderItem {
 }
 
 export interface IOrder extends Document {
+  id: string;
   user_id?: string;
   order_number: string;
   customer_name?: string;
@@ -97,6 +98,15 @@ const OrderSchema = new Schema<IOrder>({
     default: Date.now
   }
 });
+
+// Virtual for id
+OrderSchema.virtual('id').get(function(this: IOrder) {
+  return this._id.toString();
+});
+
+// Ensure virtuals are included in JSON
+OrderSchema.set('toJSON', { virtuals: true });
+OrderSchema.set('toObject', { virtuals: true });
 
 OrderSchema.pre('save', function() {
   this.updated_at = new Date();

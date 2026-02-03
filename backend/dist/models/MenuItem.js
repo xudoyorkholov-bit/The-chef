@@ -43,9 +43,15 @@ const MenuItemSchema = new Schema({
         default: Date.now
     }
 });
+// Virtual for id
+MenuItemSchema.virtual('id').get(function () {
+    return this._id.toString();
+});
+// Ensure virtuals are included in JSON
+MenuItemSchema.set('toJSON', { virtuals: true });
+MenuItemSchema.set('toObject', { virtuals: true });
 // Update updated_at on save
-MenuItemSchema.pre('save', function (next) {
+MenuItemSchema.pre('save', function () {
     this.updated_at = new Date();
-    next();
 });
 export default mongoose.model('MenuItem', MenuItemSchema);

@@ -91,8 +91,8 @@ export class MenuService {
   async updateMenuItem(id: string, data: Partial<CreateMenuItemRequest>): Promise<MenuItem> {
     try {
       // Check if menu item exists
-      const exists = await menuRepository.exists(id);
-      if (!exists) {
+      const existingItem = await menuRepository.findById(id);
+      if (!existingItem) {
         throw new Error('Menu item not found');
       }
 

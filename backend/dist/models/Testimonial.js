@@ -37,6 +37,13 @@ const TestimonialSchema = new Schema({
         default: Date.now
     }
 });
+// Virtual for id
+TestimonialSchema.virtual('id').get(function () {
+    return this._id.toString();
+});
+// Ensure virtuals are included in JSON
+TestimonialSchema.set('toJSON', { virtuals: true });
+TestimonialSchema.set('toObject', { virtuals: true });
 // Update the updated_at timestamp before saving
 TestimonialSchema.pre('save', function () {
     this.updated_at = new Date();

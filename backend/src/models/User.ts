@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface IUser extends Document {
+  id: string;
   username: string;
   password_hash: string;
   email: string;
@@ -84,5 +85,14 @@ const UserSchema = new Schema<IUser>({
     type: Date
   }
 });
+
+// Virtual for id
+UserSchema.virtual('id').get(function(this: IUser) {
+  return this._id.toString();
+});
+
+// Ensure virtuals are included in JSON
+UserSchema.set('toJSON', { virtuals: true });
+UserSchema.set('toObject', { virtuals: true });
 
 export default mongoose.model<IUser>('User', UserSchema);
