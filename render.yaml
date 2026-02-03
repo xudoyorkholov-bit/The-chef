@@ -3,13 +3,14 @@ services:
   - type: web
     name: the-chef-cafe-frontend
     env: static
-    buildCommand: cd frontend && npm install && npm run build
+    rootDir: frontend
+    buildCommand: npm install && npm run build
     staticPublishPath: frontend/dist
     envVars:
       - key: NODE_VERSION
         value: 18
       - key: VITE_API_URL
-        value: https://the-chef-cafe-qe0b.onrender.com/api
+        value: https://the-chef-cafe-backend.onrender.com/api
 
   # Backend Web Service
   - type: web
@@ -17,8 +18,9 @@ services:
     env: node
     region: oregon
     plan: free
-    buildCommand: cd backend && npm install && npm run build
-    startCommand: cd backend && npm start
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
