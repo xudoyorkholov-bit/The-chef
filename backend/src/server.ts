@@ -34,6 +34,7 @@ const allowedOrigins = [
   'http://10.54.8.99:3000',
   'http://10.54.8.99:3001',
   'https://xudoyorkholov-bit.github.io',
+  'https://the-chef-cafe-frontend.onrender.com',
   process.env.CORS_ORIGIN
 ].filter(Boolean); // Remove undefined values
 

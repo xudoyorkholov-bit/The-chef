@@ -9,7 +9,7 @@ services:
       - key: NODE_VERSION
         value: 18
       - key: VITE_API_URL
-        value: https://the-chef-cafe-backend.onrender.com/api
+        value: https://the-chef-cafe-qe0b.onrender.com/api
 
   # Backend Web Service
   - type: web
@@ -28,3 +28,5 @@ services:
         generateValue: true
       - key: MONGODB_URI
         sync: false
+      - key: CORS_ORIGIN
+        value: https://the-chef-cafe-frontend.onrender.com
