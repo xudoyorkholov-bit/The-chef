@@ -3,74 +3,77 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+  base: '/The-chef/',
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'icon-*.png', 'apple-touch-icon.png'],
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
         name: 'The Chef Restaurant',
         short_name: 'The Chef',
-        description: 'The Chef Restaurant - Eng mazali taomlar',
-        theme_color: '#FF0000',
-        background_color: '#FFF8E7',
+        description: 'The Chef - Professional Restaurant Management',
+        theme_color: '#FF6B6B',
+        background_color: '#FFFFFF',
         display: 'standalone',
         orientation: 'portrait-primary',
         scope: '/',
         start_url: '/',
         icons: [
           {
-            src: '/icon-72x72.png',
+            src: 'icon-72x72.png',
             sizes: '72x72',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           },
           {
-            src: '/icon-96x96.png',
+            src: 'icon-96x96.png',
             sizes: '96x96',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           },
           {
-            src: '/icon-128x128.png',
+            src: 'icon-128x128.png',
             sizes: '128x128',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           },
           {
-            src: '/icon-144x144.png',
+            src: 'icon-144x144.png',
             sizes: '144x144',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           },
           {
-            src: '/icon-152x152.png',
+            src: 'icon-152x152.png',
             sizes: '152x152',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           },
           {
-            src: '/icon-192x192.png',
+            src: 'icon-192x192.png',
             sizes: '192x192',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           },
           {
-            src: '/icon-384x384.png',
+            src: 'icon-384x384.png',
             sizes: '384x384',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           },
           {
-            src: '/icon-512x512.png',
+            src: 'icon-512x512.png',
             sizes: '512x512',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           }
         ]
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+        navigateFallback: 'index.html',
+        navigateFallbackDenylist: [/^\/api/],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -79,7 +82,7 @@ export default defineConfig({
               cacheName: 'google-fonts-cache',
               expiration: {
                 maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+                maxAgeSeconds: 60 * 60 * 24 * 365
               },
               cacheableResponse: {
                 statuses: [0, 200]
@@ -93,7 +96,7 @@ export default defineConfig({
               cacheName: 'gstatic-fonts-cache',
               expiration: {
                 maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+                maxAgeSeconds: 60 * 60 * 24 * 365
               },
               cacheableResponse: {
                 statuses: [0, 200]
@@ -101,13 +104,15 @@ export default defineConfig({
             }
           },
           {
-            urlPattern: /\/api\/.*/i,
+            urlPattern: ({ url }) => {
+              return url.pathname.startsWith('/api/') && !url.pathname.includes('/src/');
+            },
             handler: 'NetworkFirst',
             options: {
               cacheName: 'api-cache',
               expiration: {
                 maxEntries: 50,
-                maxAgeSeconds: 60 * 5 // 5 minutes
+                maxAgeSeconds: 60 * 5
               },
               cacheableResponse: {
                 statuses: [0, 200]
@@ -122,8 +127,13 @@ export default defineConfig({
     })
   ],
   server: {
-    port: 3000,
+    port: 3003,
     host: '0.0.0.0',
+    hmr: {
+      protocol: 'ws',
+      host: 'localhost',
+      port: 3003
+    },
     proxy: {
       '/api': {
         target: 'http://localhost:5000',

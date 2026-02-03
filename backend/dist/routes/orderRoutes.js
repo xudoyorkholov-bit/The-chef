@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { orderController } from '../controllers/orderController';
-import { optionalAuth } from '../middleware/auth';
+import { orderController } from '../controllers/orderController.js';
+import { optionalAuth } from '../middleware/auth.js';
 const router = Router();
 // Public routes with optional auth - agar user login qilgan bo'lsa, faqat o'z buyurtmalarini ko'radi
 router.get('/', optionalAuth, orderController.getAll);
