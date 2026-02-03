@@ -10,7 +10,7 @@ services:
       - key: NODE_VERSION
         value: 18
       - key: VITE_API_URL
-        value: https://the-chef-cafe-backend.onrender.com/api
+        value: https://the-chef-caffe-2jwq.onrender.com/api
 
   # Backend Web Service
   - type: web

@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
-  base: '/The-chef/',
+  base: process.env.VITE_BASE_PATH || '/',
   plugins: [
     react(),
     VitePWA({
@@ -129,6 +129,11 @@ export default defineConfig({
   server: {
     port: 3003,
     host: '0.0.0.0',
+    allowedHosts: [
+      'localhost',
+      '.onrender.com',
+      'the-chef-cafe-uz-qi96.onrender.com'
+    ],
     hmr: {
       protocol: 'ws',
       host: 'localhost',
@@ -140,5 +145,14 @@ export default defineConfig({
         changeOrigin: true
       }
     }
+  },
+  preview: {
+    port: 3003,
+    host: '0.0.0.0',
+    allowedHosts: [
+      'localhost',
+      '.onrender.com',
+      'the-chef-cafe-uz-qi96.onrender.com'
+    ]
   }
 })
