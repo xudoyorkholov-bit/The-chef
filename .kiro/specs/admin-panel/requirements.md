@@ -7,6 +7,7 @@ Admin panel - bu restoran administratorlari uchun maxsus interfeys bo'lib, ular 
 ## Glossary
 
 - **Admin**: Tizimda admin rolga ega foydalanuvchi
+- **Secret Admin Access**: Maxsus yashirin telefon raqam va parol orqali admin panelga kirish usuli
 - **Dashboard**: Admin panelning asosiy sahifasi, statistika va umumiy ma'lumotlar ko'rsatiladigan joy
 - **CRUD**: Create, Read, Update, Delete - ma'lumotlarni yaratish, o'qish, yangilash va o'chirish operatsiyalari
 - **Menu Management**: Menyu mahsulotlarini boshqarish
@@ -17,13 +18,14 @@ Admin panel - bu restoran administratorlari uchun maxsus interfeys bo'lib, ular 
 
 ### Requirement 1
 
-**User Story:** Admin sifatida, men admin panelga kirish uchun admin roli bilan tizimga kirishim kerak.
+**User Story:** Admin sifatida, men maxsus yashirin yo'l orqali admin panelga kirishim kerak, shunda oddiy foydalanuvchilar admin panelni topa olmasin.
 
 #### Acceptance Criteria
 
-1. WHEN admin roli bo'lmagan foydalanuvchi admin panelga kirishga urinsa THEN tizim uni asosiy sahifaga yo'naltirishi kerak
-2. WHEN admin roli bilan foydalanuvchi tizimga kirsa THEN tizim admin panel tugmasini ko'rsatishi kerak
-3. WHEN admin admin panel tugmasini bossa THEN tizim admin panel sahifasiga o'tishi kerak
+1. WHEN foydalanuvchi register sahifasida maxsus admin telefon raqami va parolni kiritsa THEN tizim uni admin roli bilan ro'yxatdan o'tkazishi kerak
+2. WHEN admin roli bilan foydalanuvchi tizimga kirsa THEN tizim uni avtomatik ravishda admin panel sahifasiga yo'naltirishi kerak
+3. WHEN admin roli bo'lmagan foydalanuvchi admin panelga kirishga urinsa THEN tizim uni asosiy sahifaga yo'naltirishi kerak
+4. WHEN oddiy foydalanuvchi tizimga kirsa THEN tizim uni asosiy sahifaga yo'naltirishi kerak va admin panel haqida hech qanday ma'lumot ko'rsatmasligi kerak
 
 ### Requirement 2
 
