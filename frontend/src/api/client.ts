@@ -58,15 +58,15 @@ apiClient.interceptors.response.use(
     return response;
   },
   (error) => {
-    // Only redirect to auth on 401 if it's not a file upload error
+    // Only remove token on 401, don't redirect automatically
+    // Let components handle navigation to avoid infinite loops
     if (error.response?.status === 401) {
-      // Check if this is a token-related auth error (not a validation error)
       const errorMessage = error.response?.data?.error || '';
       if (errorMessage.toLowerCase().includes('unauthorized') || 
           errorMessage.toLowerCase().includes('token') ||
           errorMessage.toLowerCase().includes('authentication')) {
         localStorage.removeItem('token');
-        window.location.href = '/auth';
+        // Don't redirect here - let ProtectedRoute handle it
       }
     }
     return Promise.reject(error);

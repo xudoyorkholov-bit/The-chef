@@ -4,6 +4,13 @@
 - **Frontend**: https://the-chef-cafe-uz-qi96.onrender.com
 - **Backend**: https://the-chef-caffe-2jwq.onrender.com
 
+## ⚠️ MUHIM ESLATMA
+Agar local'da ishlayotgan bo'lsangiz, avval serverlarni ishga tushiring:
+- Backend: `cd backend && npm run dev`
+- Frontend: `cd frontend && npm run dev`
+
+To'liq qo'llanma: `LOCAL_DEV_MUAMMOLAR.md` faylini o'qing
+
 ---
 
 ## 🔧 BACKEND SOZLASH (5 daqiqa)
