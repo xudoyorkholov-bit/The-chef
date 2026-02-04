@@ -7,7 +7,7 @@ export const usersApi = {
     return response.data;
   },
 
-  async updateProfile(data: { full_name?: string; phone?: string }): Promise<User> {
+  async updateProfile(data: { full_name?: string; phone?: string; password?: string }): Promise<User> {
     const response = await client.put('/users/profile', data);
     return response.data;
   },

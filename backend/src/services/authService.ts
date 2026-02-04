@@ -1,13 +1,42 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import userRepository from '../repositories/userRepository.js';
-import { User, RegisterRequest } from '../types/index.js';
+
+// JSON Database uchun User interface
+interface IUser {
+  _id: string;
+  username: string;
+  password_hash: string;
+  email: string;
+  phone?: string;
+  full_name?: string;
+  role: 'admin' | 'customer';
+  profile_picture_url?: string;
+  payment_methods?: Array<{
+    id: string;
+    cardNumber: string;
+    cardHolder: string;
+    expiryDate: string;
+    isDefault: boolean;
+  }>;
+  last_login?: Date;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface RegisterRequest {
+  username: string;
+  email: string;
+  password: string;
+  phone?: string;
+  full_name?: string;
+}
 
 export class AuthService {
   private readonly JWT_SECRET: string = process.env.JWT_SECRET || 'your-secret-key';
   private readonly JWT_EXPIRES_IN: string = process.env.JWT_EXPIRES_IN || '24h';
 
-  async register(data: RegisterRequest): Promise<{ token: string; user: Omit<User, 'password_hash'> }> {
+  async register(data: RegisterRequest): Promise<{ token: string; user: Omit<IUser, 'password_hash'> }> {
     try {
       // Check if user already exists
       const existingUser = await userRepository.findByUsername(data.username);
@@ -40,9 +69,8 @@ export class AuthService {
         { expiresIn: this.JWT_EXPIRES_IN } as jwt.SignOptions
       );
 
-      // Convert Mongoose document to plain object
-      const userObj = user.toObject ? user.toObject() : user;
-      const { password_hash: _, ...userWithoutPassword } = userObj;
+      // Remove password_hash from response
+      const { password_hash: _, ...userWithoutPassword } = user;
 
       return { token, user: userWithoutPassword };
     } catch (error) {
@@ -51,7 +79,7 @@ export class AuthService {
     }
   }
 
-  async login(username: string, password: string): Promise<{ token: string; user: Omit<User, 'password_hash'> }> {
+  async login(username: string, password: string): Promise<{ token: string; user: Omit<IUser, 'password_hash'> }> {
     try {
       const user = await userRepository.findByUsername(username);
       
@@ -73,9 +101,8 @@ export class AuthService {
         { expiresIn: this.JWT_EXPIRES_IN } as jwt.SignOptions
       );
 
-      // Convert Mongoose document to plain object
-      const userObj = user.toObject ? user.toObject() : user;
-      const { password_hash, ...userWithoutPassword } = userObj;
+      // Remove password_hash from response
+      const { password_hash, ...userWithoutPassword } = user;
 
       return { token, user: userWithoutPassword };
     } catch (error) {
@@ -93,15 +120,14 @@ export class AuthService {
     }
   }
 
-  async getUserById(id: string): Promise<Omit<User, 'password_hash'> | null> {
+  async getUserById(id: string): Promise<Omit<IUser, 'password_hash'> | null> {
     try {
       const user = await userRepository.findById(id);
       if (!user) {
         return null;
       }
-      // Convert Mongoose document to plain object
-      const userObj = user.toObject ? user.toObject() : user;
-      const { password_hash, ...userWithoutPassword } = userObj;
+      // Remove password_hash from response
+      const { password_hash, ...userWithoutPassword } = user;
       return userWithoutPassword;
     } catch (error) {
       console.error('Error in getUserById:', error);

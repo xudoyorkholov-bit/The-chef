@@ -1,13 +1,27 @@
-import Gallery from '../models/Gallery.js';
-import { IGallery } from '../models/Gallery.js';
+import { JsonDatabase } from '../database/jsonDb.js';
+
+interface IGallery {
+  _id: string;
+  title: string;
+  image_url: string;
+  thumbnail_url: string;
+  display_order: number;
+  createdAt: string;
+  updatedAt: string;
+}
 
 const galleryRepository = {
   async findAll(): Promise<IGallery[]> {
-    return await Gallery.find().sort({ display_order: 1, created_at: -1 });
+    const items = JsonDatabase.find('gallery');
+    return items.sort((a, b) => {
+      const orderCompare = (a.display_order || 0) - (b.display_order || 0);
+      if (orderCompare !== 0) return orderCompare;
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+    });
   },
 
   async findById(id: string): Promise<IGallery | null> {
-    return await Gallery.findById(id);
+    return JsonDatabase.findById('gallery', id);
   },
 
   async create(galleryData: {
@@ -16,29 +30,22 @@ const galleryRepository = {
     thumbnail_url: string;
     display_order?: number;
   }): Promise<IGallery> {
-    const gallery = new Gallery(galleryData);
-    return await gallery.save();
+    return JsonDatabase.create('gallery', {
+      ...galleryData,
+      display_order: galleryData.display_order || 0
+    });
   },
 
   async update(id: string, galleryData: Partial<IGallery>): Promise<IGallery | null> {
-    return await Gallery.findByIdAndUpdate(
-      id,
-      galleryData,
-      { new: true }
-    );
+    return JsonDatabase.update('gallery', id, galleryData);
   },
 
   async delete(id: string): Promise<boolean> {
-    const result = await Gallery.findByIdAndDelete(id);
-    return result !== null;
+    return JsonDatabase.delete('gallery', id);
   },
 
   async updateDisplayOrder(id: string, display_order: number): Promise<IGallery | null> {
-    return await Gallery.findByIdAndUpdate(
-      id,
-      { display_order },
-      { new: true }
-    );
+    return JsonDatabase.update('gallery', id, { display_order });
   }
 };
 

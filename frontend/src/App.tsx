@@ -19,25 +19,31 @@ import AuthPage from './pages/AuthPage';
 import InstallGuidePage from './pages/InstallGuidePage';
 
 function App() {
-  // CRITICAL: Unregister all service workers on app load
+  // Service worker cleanup - only run once
   useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(registrations => {
-        registrations.forEach(registration => {
-          console.log('Unregistering service worker:', registration);
-          registration.unregister();
-        });
-      });
-    }
+    const hasCleanedUp = sessionStorage.getItem('sw-cleaned');
     
-    // Clear all caches
-    if ('caches' in window) {
-      caches.keys().then(cacheNames => {
-        cacheNames.forEach(cacheName => {
-          console.log('Deleting cache:', cacheName);
-          caches.delete(cacheName);
+    if (!hasCleanedUp) {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(registrations => {
+          registrations.forEach(registration => {
+            console.log('Unregistering service worker:', registration);
+            registration.unregister();
+          });
         });
-      });
+      }
+      
+      // Clear all caches
+      if ('caches' in window) {
+        caches.keys().then(cacheNames => {
+          cacheNames.forEach(cacheName => {
+            console.log('Deleting cache:', cacheName);
+            caches.delete(cacheName);
+          });
+        });
+      }
+      
+      sessionStorage.setItem('sw-cleaned', 'true');
     }
   }, []);
 

@@ -157,7 +157,11 @@ const ProfilePage: React.FC = () => {
 
   const handleMenuClick = (menuItem: string) => {
     if (menuItem === t('profile.personalInfo')) {
-      setEditedInfo(userInfo);
+      // Set edited info but clear password field (user should enter new password if they want to change it)
+      setEditedInfo({
+        ...userInfo,
+        password: '' // Clear password field - user will enter new password if they want to change it
+      });
       setShowPersonalInfoModal(true);
     } else if (menuItem === t('profile.addresses')) {
       setShowAddressModal(true);
@@ -172,11 +176,19 @@ const ProfilePage: React.FC = () => {
 
   const handleSavePersonalInfo = async () => {
     try {
-      // Save to backend
-      await usersApi.updateProfile({
+      // Prepare update data
+      const updateData: { full_name: string; phone: string; password?: string } = {
         full_name: editedInfo.name,
         phone: editedInfo.phone
-      });
+      };
+      
+      // Only include password if it was changed (user entered a new password)
+      if (editedInfo.password && editedInfo.password.trim() !== '') {
+        updateData.password = editedInfo.password;
+      }
+      
+      // Save to backend
+      await usersApi.updateProfile(updateData);
       
       // Update local state
       setUserInfo(editedInfo);

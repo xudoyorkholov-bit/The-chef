@@ -1,19 +1,29 @@
-import Testimonial from '../models/Testimonial.js';
-import { ITestimonial } from '../models/Testimonial.js';
+import { JsonDatabase } from '../database/jsonDb.js';
+
+interface ITestimonial {
+  _id: string;
+  user_id: string;
+  user_name: string;
+  rating: number;
+  comment: string;
+  status: 'pending' | 'approved' | 'rejected';
+  createdAt: string;
+  updatedAt: string;
+}
 
 const testimonialRepository = {
   async findAll(): Promise<ITestimonial[]> {
-    return await Testimonial.find({ status: 'approved' })
-      .sort({ created_at: -1 })
-      .populate('user_id', 'username full_name');
+    const testimonials = JsonDatabase.find('testimonials', { status: 'approved' });
+    return testimonials.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
   },
 
   async findById(id: string): Promise<ITestimonial | null> {
-    return await Testimonial.findById(id).populate('user_id', 'username full_name');
+    return JsonDatabase.findById('testimonials', id);
   },
 
   async findByUserId(userId: string): Promise<ITestimonial[]> {
-    return await Testimonial.find({ user_id: userId }).sort({ created_at: -1 });
+    const testimonials = JsonDatabase.find('testimonials', { user_id: userId });
+    return testimonials.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
   },
 
   async create(testimonialData: {
@@ -22,21 +32,18 @@ const testimonialRepository = {
     rating: number;
     comment: string;
   }): Promise<ITestimonial> {
-    const testimonial = new Testimonial(testimonialData);
-    return await testimonial.save();
+    return JsonDatabase.create('testimonials', {
+      ...testimonialData,
+      status: 'pending'
+    });
   },
 
   async updateStatus(id: string, status: 'pending' | 'approved' | 'rejected'): Promise<ITestimonial | null> {
-    return await Testimonial.findByIdAndUpdate(
-      id,
-      { status, updated_at: new Date() },
-      { new: true }
-    );
+    return JsonDatabase.update('testimonials', id, { status });
   },
 
   async delete(id: string): Promise<boolean> {
-    const result = await Testimonial.findByIdAndDelete(id);
-    return result !== null;
+    return JsonDatabase.delete('testimonials', id);
   }
 };
 

@@ -34,7 +34,7 @@ const userController = {
         profile_picture_url: user.profile_picture_url,
         role: user.role,
         payment_methods: user.payment_methods || [],
-        created_at: user.created_at
+        created_at: user.createdAt
       };
 
       res.json(userResponse);
@@ -48,23 +48,57 @@ const userController = {
     try {
       const userId = req.userId;
       
+      console.log('📝 Update profile request:', {
+        userId,
+        body: req.body
+      });
+      
       if (!userId) {
         res.status(401).json({ error: 'Unauthorized' });
         return;
       }
 
-      const { full_name, phone } = req.body;
+      const { full_name, phone, password } = req.body;
       
+      // Validation: Check if full_name is empty
+      if (full_name !== undefined && full_name.trim() === '') {
+        console.log('❌ Validation failed: empty full_name');
+        res.status(400).json({ error: 'Ism bo\'sh bo\'lishi mumkin emas' });
+        return;
+      }
+
+      // Validation: Check password length (min 6 characters)
+      if (password && password !== '********' && password.length < 6) {
+        console.log('❌ Validation failed: password too short');
+        res.status(400).json({ error: 'Parol kamida 6 ta belgidan iborat bo\'lishi kerak' });
+        return;
+      }
+
+      // Validation: Check phone format (basic validation)
+      if (phone !== undefined && phone.trim() !== '') {
+        // Phone should start with + and contain only digits, spaces, and dashes
+        const phoneRegex = /^\+?[\d\s-]+$/;
+        if (!phoneRegex.test(phone)) {
+          console.log('❌ Validation failed: invalid phone format');
+          res.status(400).json({ error: 'Telefon raqam formati noto\'g\'ri' });
+          return;
+        }
+      }
+      
+      console.log('✅ Validation passed, updating profile...');
       const updatedUser = await userService.updateProfile(userId, {
         full_name,
-        phone
+        phone,
+        password
       });
 
       if (!updatedUser) {
+        console.log('❌ User not found');
         res.status(404).json({ error: 'User not found' });
         return;
       }
 
+      console.log('✅ Profile updated successfully');
       const userResponse = {
         id: updatedUser._id,
         username: updatedUser.username,
@@ -77,7 +111,7 @@ const userController = {
 
       res.json(userResponse);
     } catch (error) {
-      console.error('Update profile error:', error);
+      console.error('❌ Update profile error:', error);
       res.status(500).json({ error: 'Failed to update profile' });
     }
   },

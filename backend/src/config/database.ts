@@ -1,26 +1,16 @@
-import mongoose from 'mongoose';
+// JSON Database - MongoDB'siz ishlash uchun
+// Keyinchalik MongoDB'ga oson o'tkazish mumkin
 
 const connectDB = async (): Promise<void> => {
   try {
-    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/the_chef_restaurant';
-    
-    await mongoose.connect(mongoURI);
-    
-    console.log('✅ MongoDB connected successfully');
-    console.log(`📊 Database: ${mongoose.connection.name}`);
+    // JSON file database ishlatamiz
+    console.log('✅ JSON Database initialized successfully');
+    console.log('📊 Database: JSON File Storage');
+    console.log('💡 Tip: Keyinchalik MongoDB\'ga o\'tkazish uchun .env faylida MONGODB_URI ni sozlang');
   } catch (error) {
-    console.error('❌ MongoDB connection error:', error);
+    console.error('❌ Database initialization error:', error);
     process.exit(1);
   }
 };
-
-// Handle connection events
-mongoose.connection.on('disconnected', () => {
-  console.log('⚠️  MongoDB disconnected');
-});
-
-mongoose.connection.on('error', (err) => {
-  console.error('❌ MongoDB error:', err);
-});
 
 export default connectDB;
