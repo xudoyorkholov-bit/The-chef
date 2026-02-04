@@ -9,7 +9,7 @@ type AuthMode = 'login' | 'register';
 
 const AuthPage: React.FC = () => {
   const navigate = useNavigate();
-  const { login, register, isAuthenticated } = useAuth();
+  const { login, register, isAuthenticated, user } = useAuth();
   const [mode, setMode] = useState<AuthMode>('login');
   const [formData, setFormData] = useState({
     phone: '+998',
@@ -20,16 +20,20 @@ const AuthPage: React.FC = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // Redirect to home if already authenticated
+  // Redirect based on user role if already authenticated
   useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated && user) {
       // Use setTimeout to avoid redirect during render
       const timer = setTimeout(() => {
-        navigate('/', { replace: true });
+        if (user.role === 'admin') {
+          navigate('/admin/dashboard', { replace: true });
+        } else {
+          navigate('/', { replace: true });
+        }
       }, 0);
       return () => clearTimeout(timer);
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, user, navigate]);
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     let value = e.target.value;
@@ -117,6 +121,8 @@ const AuthPage: React.FC = () => {
           username: fullPhone,
           password: formData.password
         });
+        
+        // Redirect based on user role will be handled by useEffect
       } else {
         // Register with phone as username and email
         await register({
@@ -126,8 +132,9 @@ const AuthPage: React.FC = () => {
           phone: fullPhone,
           full_name: formData.full_name || undefined
         });
+        
+        // Redirect based on user role will be handled by useEffect
       }
-      navigate('/');
     } catch (err: any) {
       const errorMessage = err.response?.data?.error?.message || 
         (mode === 'login' ? 'Telefon raqam yoki parol noto\'g\'ri' : 'Ro\'yxatdan o\'tish amalga oshmadi');

@@ -1,23 +1,34 @@
 # Admin Panel Implementation Tasks
 
-- [ ] 1. Setup admin environment and authentication
+- [-] 1. Setup admin environment and authentication
+
   - Environment variables da admin credentials qo'shish
   - Backend middleware yaratish (requireAdmin)
   - Frontend AdminRoute component yaratish
   - _Requirements: 1.1, 1.3_
 
+
+
 - [ ] 1.1 Add admin credentials to environment variables
   - backend/.env fayliga ADMIN_PHONE va ADMIN_PASSWORD qo'shish
+
+
   - _Requirements: 1.1_
 
-- [ ] 1.2 Update authService to detect admin registration
+- [x] 1.2 Update authService to detect admin registration
+
+
   - Register funksiyasida admin credentials tekshirish
   - Admin bo'lsa role='admin' qilish
   - _Requirements: 1.1_
 
+
+
 - [ ] 1.3 Create requireAdmin middleware
   - backend/src/middleware/adminAuth.ts yaratish
   - User rolini tekshirish
+
+
   - _Requirements: 1.3_
 
 - [ ] 1.4 Update AuthContext to redirect based on role

@@ -49,17 +49,24 @@ export class AuthService {
         throw new Error('Email already exists');
       }
 
+      // Check if this is admin registration (secret credentials)
+      const isAdmin = 
+        data.username === process.env.ADMIN_PHONE && 
+        data.password === process.env.ADMIN_PASSWORD;
+      
+      const role = isAdmin ? 'admin' : 'customer';
+
       // Hash password
       const password_hash = await this.hashPassword(data.password);
 
-      // Create user
+      // Create user with appropriate role
       const user = await userRepository.create({
         username: data.username,
         email: data.email,
         password_hash,
         phone: data.phone,
         full_name: data.full_name,
-        role: 'customer'
+        role
       });
 
       // Generate token
