@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
@@ -18,52 +18,53 @@ import ContactPage from './pages/ContactPage';
 import AuthPage from './pages/AuthPage';
 import InstallGuidePage from './pages/InstallGuidePage';
 
-// Component to scroll to top on route change
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
-
 function App() {
+  // CRITICAL: Unregister all service workers on app load
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(registrations => {
+        registrations.forEach(registration => {
+          console.log('Unregistering service worker:', registration);
+          registration.unregister();
+        });
+      });
+    }
+    
+    // Clear all caches
+    if ('caches' in window) {
+      caches.keys().then(cacheNames => {
+        cacheNames.forEach(cacheName => {
+          console.log('Deleting cache:', cacheName);
+          caches.delete(cacheName);
+        });
+      });
+    }
+  }, []);
+
   return (
     <LanguageProvider>
       <AuthProvider>
         <CartProvider>
           <BrowserRouter>
-            <ScrollToTop />
             <InstallPrompt />
             <Routes>
-              {/* Public route - Auth page */}
+              {/* Public route */}
               <Route path="/auth" element={<AuthPage />} />
               
-              {/* Protected routes - require authentication */}
-              <Route
-                path="/*"
-                element={
-                  <ProtectedRoute>
-                    <Layout>
-                      <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/menu" element={<MenuPage />} />
-                        <Route path="/orders" element={<OrdersPage />} />
-                        <Route path="/profile" element={<ProfilePage />} />
-                        <Route path="/cart" element={<CartPage />} />
-                        <Route path="/reservations" element={<ReservationPage />} />
-                        <Route path="/testimonials" element={<TestimonialsPage />} />
-                        <Route path="/gallery" element={<GalleryPage />} />
-                        <Route path="/contact" element={<ContactPage />} />
-                        <Route path="/install-guide" element={<InstallGuidePage />} />
-                        <Route path="*" element={<Navigate to="/" replace />} />
-                      </Routes>
-                    </Layout>
-                  </ProtectedRoute>
-                }
-              />
+              {/* Protected routes */}
+              <Route path="/" element={<ProtectedRoute><Layout><HomePage /></Layout></ProtectedRoute>} />
+              <Route path="/menu" element={<ProtectedRoute><Layout><MenuPage /></Layout></ProtectedRoute>} />
+              <Route path="/orders" element={<ProtectedRoute><Layout><OrdersPage /></Layout></ProtectedRoute>} />
+              <Route path="/profile" element={<ProtectedRoute><Layout><ProfilePage /></Layout></ProtectedRoute>} />
+              <Route path="/cart" element={<ProtectedRoute><Layout><CartPage /></Layout></ProtectedRoute>} />
+              <Route path="/reservations" element={<ProtectedRoute><Layout><ReservationPage /></Layout></ProtectedRoute>} />
+              <Route path="/testimonials" element={<ProtectedRoute><Layout><TestimonialsPage /></Layout></ProtectedRoute>} />
+              <Route path="/gallery" element={<ProtectedRoute><Layout><GalleryPage /></Layout></ProtectedRoute>} />
+              <Route path="/contact" element={<ProtectedRoute><Layout><ContactPage /></Layout></ProtectedRoute>} />
+              <Route path="/install-guide" element={<ProtectedRoute><Layout><InstallGuidePage /></Layout></ProtectedRoute>} />
+              
+              {/* Catch all - redirect to home */}
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </BrowserRouter>
         </CartProvider>
