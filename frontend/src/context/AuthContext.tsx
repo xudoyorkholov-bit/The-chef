@@ -31,26 +31,43 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Check if user is already logged in
     const token = localStorage.getItem('token');
     if (token) {
+      // Set a flag to prevent multiple calls
+      let isMounted = true;
+      
       // Import usersApi dynamically to avoid circular dependency
       const timeoutId = setTimeout(() => {
-        setIsLoading(false);
-        localStorage.removeItem('token');
-      }, 2000); // 2 second timeout
+        if (isMounted) {
+          setIsLoading(false);
+          // Don't remove token on timeout - just stop loading
+        }
+      }, 5000); // 5 second timeout
       
       import('../api/users').then(({ usersApi }) => {
         usersApi.getProfile()
           .then(userData => {
-            clearTimeout(timeoutId);
-            setUser(userData);
+            if (isMounted) {
+              clearTimeout(timeoutId);
+              setUser(userData);
+              setIsLoading(false);
+            }
           })
-          .catch(() => {
-            clearTimeout(timeoutId);
-            localStorage.removeItem('token');
-          })
-          .finally(() => {
-            setIsLoading(false);
+          .catch((error) => {
+            if (isMounted) {
+              clearTimeout(timeoutId);
+              console.error('Failed to load user profile:', error);
+              // Only remove token if it's actually invalid (401)
+              if (error.response?.status === 401) {
+                localStorage.removeItem('token');
+              }
+              setIsLoading(false);
+            }
           });
       });
+      
+      return () => {
+        isMounted = false;
+        clearTimeout(timeoutId);
+      };
     } else {
       setIsLoading(false);
     }

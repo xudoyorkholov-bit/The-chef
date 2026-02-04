@@ -23,7 +23,11 @@ const AuthPage: React.FC = () => {
   // Redirect to home if already authenticated
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/', { replace: true });
+      // Use setTimeout to avoid redirect during render
+      const timer = setTimeout(() => {
+        navigate('/', { replace: true });
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [isAuthenticated, navigate]);
 
