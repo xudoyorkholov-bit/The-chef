@@ -29,6 +29,7 @@
   - User rolini tekshirish
 
 
+
   - _Requirements: 1.3_
 
 - [ ] 1.4 Update AuthContext to redirect based on role
@@ -46,25 +47,33 @@
   - **Property 1: Admin Access Control**
   - **Validates: Requirements 1.3**
 
-- [ ] 2. Create admin layout and navigation
+- [x] 2. Create admin layout and navigation
+
+
   - AdminLayout component yaratish
   - AdminSidebar component yaratish
   - Admin routes qo'shish (App.tsx)
   - _Requirements: 1.2, 8.1_
 
-- [ ] 2.1 Create AdminLayout component
+- [x] 2.1 Create AdminLayout component
+
+
   - frontend/src/components/admin/AdminLayout.tsx yaratish
   - Sidebar va top bar qo'shish
   - Logout va "Asosiy saytga qaytish" tugmalari
   - _Requirements: 8.1, 8.2_
 
-- [ ] 2.2 Create AdminSidebar component
+- [x] 2.2 Create AdminSidebar component
+
+
   - frontend/src/components/admin/AdminSidebar.tsx yaratish
   - Navigation links (Dashboard, Menu, Orders, Reservations, Messages, Gallery)
   - Active link highlighting
   - _Requirements: 1.2_
 
-- [ ] 2.3 Add admin routes to App.tsx
+- [x] 2.3 Add admin routes to App.tsx
+
+
   - /admin/dashboard route qo'shish
   - /admin/menu route qo'shish
   - /admin/orders route qo'shish
@@ -72,6 +81,7 @@
   - /admin/messages route qo'shish
   - /admin/gallery route qo'shish
   - _Requirements: 1.2_
+
 
 - [ ] 2.4 Create admin CSS files
   - AdminLayout.css yaratish

@@ -4,7 +4,9 @@ import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { LanguageProvider } from './context/LanguageContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminRoute from './components/AdminRoute';
 import Layout from './components/Layout';
+import AdminLayout from './components/admin/AdminLayout';
 import InstallPrompt from './components/InstallPrompt';
 import HomePage from './pages/HomePage';
 import MenuPage from './pages/MenuPage';
@@ -17,6 +19,7 @@ import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
 import AuthPage from './pages/AuthPage';
 import InstallGuidePage from './pages/InstallGuidePage';
+import AdminDashboard from './pages/admin/AdminDashboard';
 
 function App() {
   // Service worker cleanup - only run once
@@ -56,6 +59,14 @@ function App() {
             <Routes>
               {/* Public route */}
               <Route path="/auth" element={<AuthPage />} />
+              
+              {/* Admin routes */}
+              <Route path="/admin/dashboard" element={<AdminRoute><AdminLayout><AdminDashboard /></AdminLayout></AdminRoute>} />
+              <Route path="/admin/menu" element={<AdminRoute><AdminLayout><div>Menu Management</div></AdminLayout></AdminRoute>} />
+              <Route path="/admin/orders" element={<AdminRoute><AdminLayout><div>Orders Management</div></AdminLayout></AdminRoute>} />
+              <Route path="/admin/reservations" element={<AdminRoute><AdminLayout><div>Reservations Management</div></AdminLayout></AdminRoute>} />
+              <Route path="/admin/messages" element={<AdminRoute><AdminLayout><div>Messages Management</div></AdminLayout></AdminRoute>} />
+              <Route path="/admin/gallery" element={<AdminRoute><AdminLayout><div>Gallery Management</div></AdminLayout></AdminRoute>} />
               
               {/* Protected routes */}
               <Route path="/" element={<ProtectedRoute><Layout><HomePage /></Layout></ProtectedRoute>} />

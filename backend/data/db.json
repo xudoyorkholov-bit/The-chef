@@ -73,6 +73,18 @@
       "updatedAt": "2026-02-04T06:41:06.021Z",
       "last_login": "2026-02-04T06:19:09.989Z",
       "profile_picture_url": "/uploads/profiles/profile-1770187252996-178283759.jpg"
+    },
+    {
+      "_id": "ml7o8scuoprjwvjfsjm",
+      "username": "+998777777777",
+      "email": "998777777777@thechef.uz",
+      "password_hash": "$2b$10$0QysqqWTfrJFzU7bvz/vcOe.ANfNJVsJetg.Um/qAIjay/rB4r.C.",
+      "phone": "+998777777777",
+      "full_name": "admin",
+      "role": "admin",
+      "payment_methods": [],
+      "createdAt": "2026-02-04T06:53:43.182Z",
+      "updatedAt": "2026-02-04T06:53:43.182Z"
     }
   ],
   "menuItems": [
