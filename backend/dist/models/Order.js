@@ -42,6 +42,10 @@ const OrderSchema = new Schema({
         lowercase: true,
         trim: true
     },
+    delivery_address: {
+        type: String,
+        trim: true
+    },
     items: {
         type: [OrderItemSchema],
         required: true,
@@ -59,7 +63,7 @@ const OrderSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ['pending', 'confirmed', 'preparing', 'ready', 'completed', 'cancelled'],
+        enum: ['pending', 'confirmed', 'delivering', 'completed', 'cancelled'],
         default: 'pending'
     },
     notes: {

@@ -31,6 +31,7 @@ const upload = multer({
 });
 // All routes require authentication
 router.use(authenticate);
+router.get('/', (req, res) => userController.getAllUsers(req, res));
 router.get('/profile', (req, res) => userController.getProfile(req, res));
 router.put('/profile', (req, res) => userController.updateProfile(req, res));
 router.post('/profile/picture', upload.single('picture'), (req, res) => userController.uploadProfilePicture(req, res));

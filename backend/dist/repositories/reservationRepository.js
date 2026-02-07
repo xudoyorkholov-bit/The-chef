@@ -1,62 +1,85 @@
-import Reservation from '../models/Reservation.js';
+import { JsonDatabase } from '../database/jsonDb.js';
 const reservationRepository = {
     // Foydalanuvchining rezervatsiyalarini olish
     async findByUserId(userId) {
-        return await Reservation.find({ user_id: userId }).sort({ reservation_date: -1, reservation_time: -1 });
+        const reservations = JsonDatabase.find('reservations', { user_id: userId });
+        return reservations.sort((a, b) => {
+            const dateCompare = new Date(b.reservation_date).getTime() - new Date(a.reservation_date).getTime();
+            if (dateCompare !== 0)
+                return dateCompare;
+            return b.reservation_time.localeCompare(a.reservation_time);
+        });
     },
     // Barcha rezervatsiyalarni olish (admin uchun)
     async findAll() {
-        return await Reservation.find().sort({ reservation_date: -1, reservation_time: -1 });
+        const reservations = JsonDatabase.find('reservations');
+        return reservations.sort((a, b) => {
+            const dateCompare = new Date(b.reservation_date).getTime() - new Date(a.reservation_date).getTime();
+            if (dateCompare !== 0)
+                return dateCompare;
+            return b.reservation_time.localeCompare(a.reservation_time);
+        });
     },
     async findById(id) {
-        return await Reservation.findById(id);
+        return JsonDatabase.findById('reservations', id);
     },
     async findByEmail(email) {
-        return await Reservation.find({ customer_email: email }).sort({ reservation_date: -1 });
+        const reservations = JsonDatabase.find('reservations', { customer_email: email });
+        return reservations.sort((a, b) => new Date(b.reservation_date).getTime() - new Date(a.reservation_date).getTime());
     },
     async findByDate(date) {
         const startOfDay = new Date(date);
         startOfDay.setHours(0, 0, 0, 0);
         const endOfDay = new Date(date);
         endOfDay.setHours(23, 59, 59, 999);
-        return await Reservation.find({
-            reservation_date: {
-                $gte: startOfDay,
-                $lte: endOfDay
-            }
-        }).sort({ reservation_time: 1 });
+        const allReservations = JsonDatabase.find('reservations');
+        const filtered = allReservations.filter(r => {
+            const resDate = new Date(r.reservation_date);
+            return resDate >= startOfDay && resDate <= endOfDay;
+        });
+        return filtered.sort((a, b) => a.reservation_time.localeCompare(b.reservation_time));
     },
     async create(reservationData) {
-        const reservation = new Reservation(reservationData);
-        return await reservation.save();
+        return JsonDatabase.create('reservations', {
+            ...reservationData,
+            status: 'pending'
+        });
     },
     async updateStatus(id, status) {
-        return await Reservation.findByIdAndUpdate(id, { status, updated_at: new Date() }, { new: true });
+        return JsonDatabase.update('reservations', id, { status });
     },
     async update(id, data) {
-        return await Reservation.findByIdAndUpdate(id, { ...data, updated_at: new Date() }, { new: true });
+        return JsonDatabase.update('reservations', id, data);
     },
     async filterByDateNameStatus(filters) {
-        const query = {};
+        const allReservations = JsonDatabase.find('reservations');
+        let filtered = allReservations;
         if (filters.date) {
             const date = new Date(filters.date);
             const startOfDay = new Date(date);
             startOfDay.setHours(0, 0, 0, 0);
             const endOfDay = new Date(date);
             endOfDay.setHours(23, 59, 59, 999);
-            query.reservation_date = { $gte: startOfDay, $lte: endOfDay };
+            filtered = filtered.filter(r => {
+                const resDate = new Date(r.reservation_date);
+                return resDate >= startOfDay && resDate <= endOfDay;
+            });
         }
         if (filters.name) {
-            query.customer_name = { $regex: filters.name, $options: 'i' };
+            filtered = filtered.filter(r => r.customer_name.toLowerCase().includes(filters.name.toLowerCase()));
         }
         if (filters.status) {
-            query.status = filters.status;
+            filtered = filtered.filter(r => r.status === filters.status);
         }
-        return await Reservation.find(query).sort({ reservation_date: -1, reservation_time: -1 });
+        return filtered.sort((a, b) => {
+            const dateCompare = new Date(b.reservation_date).getTime() - new Date(a.reservation_date).getTime();
+            if (dateCompare !== 0)
+                return dateCompare;
+            return b.reservation_time.localeCompare(a.reservation_time);
+        });
     },
     async delete(id) {
-        const result = await Reservation.findByIdAndDelete(id);
-        return result !== null;
+        return JsonDatabase.delete('reservations', id);
     }
 };
 export default reservationRepository;

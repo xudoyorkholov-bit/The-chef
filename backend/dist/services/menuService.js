@@ -18,7 +18,7 @@ export class MenuService {
      */
     async getMenuItemsByCategory(category) {
         try {
-            const validCategories = ['appetizer', 'main', 'dessert', 'beverage'];
+            const validCategories = ['food', 'beverage'];
             if (!validCategories.includes(category)) {
                 throw new Error('Invalid category');
             }
@@ -59,7 +59,7 @@ export class MenuService {
                 throw new Error('Price must be non-negative');
             }
             // Validate category
-            const validCategories = ['appetizer', 'main', 'dessert', 'beverage'];
+            const validCategories = ['food', 'beverage'];
             if (!validCategories.includes(data.category)) {
                 throw new Error('Invalid category');
             }
@@ -95,7 +95,7 @@ export class MenuService {
             }
             // Validate category if provided
             if (data.category) {
-                const validCategories = ['appetizer', 'main', 'dessert', 'beverage'];
+                const validCategories = ['food', 'beverage'];
                 if (!validCategories.includes(data.category)) {
                     throw new Error('Invalid category');
                 }

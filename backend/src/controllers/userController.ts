@@ -8,6 +8,42 @@ interface AuthRequest extends Request {
 }
 
 const userController = {
+  async getAllUsers(req: AuthRequest, res: Response): Promise<void> {
+    try {
+      const userId = req.userId;
+      
+      if (!userId) {
+        res.status(401).json({ error: 'Unauthorized' });
+        return;
+      }
+
+      // Check if user is admin
+      const currentUser = await userService.getProfile(userId);
+      if (!currentUser || currentUser.role !== 'admin') {
+        res.status(403).json({ error: 'Forbidden - Admin access required' });
+        return;
+      }
+
+      const users = await userService.getAllUsers();
+      
+      // Format users for response (remove password hashes)
+      const usersResponse = users.map(user => ({
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        full_name: user.full_name,
+        phone: user.phone,
+        role: user.role,
+        created_at: user.createdAt
+      }));
+
+      res.json(usersResponse);
+    } catch (error) {
+      console.error('Get all users error:', error);
+      res.status(500).json({ error: 'Failed to get users' });
+    }
+  },
+
   async getProfile(req: AuthRequest, res: Response): Promise<void> {
     try {
       const userId = req.userId;

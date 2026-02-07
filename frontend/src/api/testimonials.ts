@@ -19,7 +19,22 @@ export interface CreateTestimonialRequest {
 
 export const testimonialsApi = {
   async getAll(): Promise<Testimonial[]> {
-    const response = await client.get('/testimonials');
+    // Admin uchun barcha fikrlar, oddiy foydalanuvchilar uchun faqat tasdiqlangan
+    try {
+      const response = await client.get('/testimonials');
+      return response.data;
+    } catch (error: any) {
+      // Agar admin emas bo'lsa, faqat tasdiqlangan fikrlarni olish
+      if (error.response?.status === 401 || error.response?.status === 403) {
+        const response = await client.get('/testimonials/approved');
+        return response.data;
+      }
+      throw error;
+    }
+  },
+
+  async getApproved(): Promise<Testimonial[]> {
+    const response = await client.get('/testimonials/approved');
     return response.data;
   },
 

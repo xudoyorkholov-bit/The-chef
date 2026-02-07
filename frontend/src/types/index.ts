@@ -6,7 +6,7 @@ export interface MenuItem {
   description: string;
   description_ru?: string;
   price: number;
-  category: 'appetizer' | 'main' | 'dessert' | 'beverage';
+  category: 'food' | 'beverage';
   image_url: string;
   available: boolean;
   created_at: string;
@@ -31,11 +31,15 @@ export interface ContactMessage {
   id: string;
   name: string;
   email: string;
+  phone?: string;
   subject: string;
   message: string;
   read: boolean;
   created_at: string;
 }
+
+// Alias for Message type
+export type Message = ContactMessage;
 
 export interface GalleryImage {
   id: string;
@@ -54,6 +58,7 @@ export interface User {
   full_name?: string;
   profile_picture_url?: string;
   role: 'admin' | 'customer';
+  created_at?: string;
   payment_methods?: Array<{
     id: string;
     cardNumber: string;

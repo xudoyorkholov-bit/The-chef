@@ -113,7 +113,7 @@
   margin: 0 auto;
 }
 
-.menu-item {
+.profile-menu-item {
   display: flex;
   align-items: center;
   padding: 14px 16px;
@@ -124,13 +124,13 @@
   border: 1px solid #f0f0f0;
 }
 
-.menu-item:hover {
+.profile-menu-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   border-color: rgba(255, 0, 0, 0.1);
 }
 
-.menu-item:active {
+.profile-menu-item:active {
   transform: translateY(0);
 }
 
@@ -152,7 +152,7 @@
   transition: all 0.3s ease;
 }
 
-.menu-item:hover .menu-icon-wrapper {
+.profile-menu-item:hover .menu-icon-wrapper {
   background: linear-gradient(135deg, rgba(255, 0, 0, 0.15), rgba(255, 68, 68, 0.2));
   transform: scale(1.05);
 }
@@ -195,7 +195,7 @@
     font-size: 14px;
   }
 
-  .menu-item {
+  .profile-menu-item {
     padding: 12px 14px;
     margin-bottom: 8px;
   }

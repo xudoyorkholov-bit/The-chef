@@ -1,24 +1,27 @@
-import Message from '../models/Message.js';
+import { JsonDatabase } from '../database/jsonDb.js';
 const messageRepository = {
     async findAll() {
-        return await Message.find().sort({ created_at: -1 });
+        const messages = JsonDatabase.find('messages');
+        return messages.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     },
     async findById(id) {
-        return await Message.findById(id);
+        return JsonDatabase.findById('messages', id);
     },
     async findUnread() {
-        return await Message.find({ read: false }).sort({ created_at: -1 });
+        const messages = JsonDatabase.find('messages', { read: false });
+        return messages.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     },
     async create(messageData) {
-        const message = new Message(messageData);
-        return await message.save();
+        return JsonDatabase.create('messages', {
+            ...messageData,
+            read: false
+        });
     },
     async markAsRead(id) {
-        return await Message.findByIdAndUpdate(id, { read: true }, { new: true });
+        return JsonDatabase.update('messages', id, { read: true });
     },
     async delete(id) {
-        const result = await Message.findByIdAndDelete(id);
-        return result !== null;
+        return JsonDatabase.delete('messages', id);
     }
 };
 export default messageRepository;

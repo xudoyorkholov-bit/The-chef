@@ -3,7 +3,13 @@ import { ITestimonial } from '../models/Testimonial.js';
 
 const testimonialService = {
   async getAllTestimonials(): Promise<ITestimonial[]> {
+    // Admin uchun barcha fikrlarni qaytarish
     return await testimonialRepository.findAll();
+  },
+
+  async getApprovedTestimonials(): Promise<ITestimonial[]> {
+    // Foydalanuvchilar uchun faqat tasdiqlangan fikrlarni qaytarish
+    return await testimonialRepository.findApproved();
   },
 
   async getTestimonialById(id: string): Promise<ITestimonial | null> {

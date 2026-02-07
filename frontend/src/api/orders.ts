@@ -12,7 +12,7 @@ export interface Order {
   orderNumber: string;
   items: OrderItem[];
   total: number;
-  status: 'pending' | 'confirmed' | 'preparing' | 'ready' | 'completed' | 'cancelled';
+  status: 'pending' | 'confirmed' | 'delivering' | 'completed' | 'cancelled';
   date: string;
 }
 
@@ -54,6 +54,16 @@ export const ordersApi = {
   // Buyurtmani ID bo'yicha olish
   getById: async (id: string): Promise<Order> => {
     const response = await client.get(`/orders/${id}`);
+    return {
+      ...response.data,
+      orderNumber: response.data.order_number,
+      date: response.data.created_at
+    };
+  },
+
+  // Buyurtma holatini yangilash
+  updateStatus: async (id: string, status: string): Promise<Order> => {
+    const response = await client.patch(`/orders/${id}/status`, { status });
     return {
       ...response.data,
       orderNumber: response.data.order_number,

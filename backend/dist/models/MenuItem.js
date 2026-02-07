@@ -24,7 +24,7 @@ const MenuItemSchema = new Schema({
     category: {
         type: String,
         required: true,
-        enum: ['appetizer', 'main', 'dessert', 'beverage']
+        enum: ['food', 'beverage']
     },
     image_url: {
         type: String,

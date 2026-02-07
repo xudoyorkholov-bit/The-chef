@@ -31,16 +31,13 @@ export const orderService = {
 
   // Yangi buyurtma yaratish
   async createOrder(orderData: CreateOrderRequest, userId?: string): Promise<IOrder> {
-    // Buyurtma raqamini generatsiya qilish
-    const orderNumber = orderRepository.generateOrderNumber();
-    
-    // Buyurtmani yaratish (MongoDB'da items ham birga saqlanadi)
+    // Buyurtmani yaratish (order_number avtomatik generatsiya qilinadi)
     const order = await orderRepository.create({
       user_id: userId,
-      order_number: orderNumber,
       customer_name: orderData.customer_name,
       customer_phone: orderData.customer_phone,
       customer_email: orderData.customer_email,
+      delivery_address: orderData.delivery_address,
       items: orderData.items,
       total: orderData.total,
       notes: orderData.notes
@@ -51,7 +48,7 @@ export const orderService = {
 
   // Buyurtma statusini yangilash
   async updateOrderStatus(id: string, status: string, userId?: string): Promise<IOrder> {
-    const validStatuses = ['pending', 'confirmed', 'preparing', 'ready', 'completed', 'cancelled'];
+    const validStatuses = ['pending', 'confirmed', 'delivering', 'completed', 'cancelled'];
     
     if (!validStatuses.includes(status)) {
       throw new Error('Noto\'g\'ri status');

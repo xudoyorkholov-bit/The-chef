@@ -1,27 +1,30 @@
-import MenuItem from '../models/MenuItem.js';
+import { JsonDatabase } from '../database/jsonDb.js';
 const menuRepository = {
     async findAll() {
-        return await MenuItem.find({ available: true }).sort({ category: 1, name: 1 });
+        const items = JsonDatabase.find('menuItems', {});
+        return items.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
     },
     async findById(id) {
-        return await MenuItem.findById(id);
+        return JsonDatabase.findById('menuItems', id);
     },
     async findByCategory(category) {
-        return await MenuItem.find({ category, available: true }).sort({ name: 1 });
+        const items = JsonDatabase.find('menuItems', { category });
+        return items.sort((a, b) => a.name.localeCompare(b.name));
     },
     async create(menuData) {
-        const menuItem = new MenuItem(menuData);
-        return await menuItem.save();
+        return JsonDatabase.create('menuItems', {
+            ...menuData,
+            available: menuData.available !== false
+        });
     },
     async update(id, menuData) {
-        return await MenuItem.findByIdAndUpdate(id, { ...menuData, updated_at: new Date() }, { new: true });
+        return JsonDatabase.update('menuItems', id, menuData);
     },
     async delete(id) {
-        const result = await MenuItem.findByIdAndDelete(id);
-        return result !== null;
+        return JsonDatabase.delete('menuItems', id);
     },
     async updateAvailability(id, available) {
-        return await MenuItem.findByIdAndUpdate(id, { available, updated_at: new Date() }, { new: true });
+        return JsonDatabase.update('menuItems', id, { available });
     }
 };
 export default menuRepository;

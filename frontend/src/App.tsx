@@ -7,7 +7,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/AdminRoute';
 import Layout from './components/Layout';
 import AdminLayout from './components/admin/AdminLayout';
-import InstallPrompt from './components/InstallPrompt';
 import HomePage from './pages/HomePage';
 import MenuPage from './pages/MenuPage';
 import OrdersPage from './pages/OrdersPage';
@@ -20,6 +19,11 @@ import ContactPage from './pages/ContactPage';
 import AuthPage from './pages/AuthPage';
 import InstallGuidePage from './pages/InstallGuidePage';
 import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminMenu from './pages/admin/AdminMenu';
+import AdminOrders from './pages/admin/AdminOrders';
+import AdminTestimonials from './pages/admin/AdminTestimonials';
+import AdminGallery from './pages/admin/AdminGallery';
+import AdminCustomers from './pages/admin/AdminCustomers';
 
 function App() {
   // Service worker cleanup - only run once
@@ -55,18 +59,18 @@ function App() {
       <AuthProvider>
         <CartProvider>
           <BrowserRouter>
-            <InstallPrompt />
             <Routes>
               {/* Public route */}
               <Route path="/auth" element={<AuthPage />} />
               
               {/* Admin routes */}
               <Route path="/admin/dashboard" element={<AdminRoute><AdminLayout><AdminDashboard /></AdminLayout></AdminRoute>} />
-              <Route path="/admin/menu" element={<AdminRoute><AdminLayout><div>Menu Management</div></AdminLayout></AdminRoute>} />
-              <Route path="/admin/orders" element={<AdminRoute><AdminLayout><div>Orders Management</div></AdminLayout></AdminRoute>} />
+              <Route path="/admin/menu" element={<AdminRoute><AdminLayout><AdminMenu /></AdminLayout></AdminRoute>} />
+              <Route path="/admin/orders" element={<AdminRoute><AdminLayout><AdminOrders /></AdminLayout></AdminRoute>} />
               <Route path="/admin/reservations" element={<AdminRoute><AdminLayout><div>Reservations Management</div></AdminLayout></AdminRoute>} />
-              <Route path="/admin/messages" element={<AdminRoute><AdminLayout><div>Messages Management</div></AdminLayout></AdminRoute>} />
-              <Route path="/admin/gallery" element={<AdminRoute><AdminLayout><div>Gallery Management</div></AdminLayout></AdminRoute>} />
+              <Route path="/admin/testimonials" element={<AdminRoute><AdminLayout><AdminTestimonials /></AdminLayout></AdminRoute>} />
+              <Route path="/admin/gallery" element={<AdminRoute><AdminLayout><AdminGallery /></AdminLayout></AdminRoute>} />
+              <Route path="/admin/customers" element={<AdminRoute><AdminLayout><AdminCustomers /></AdminLayout></AdminRoute>} />
               
               {/* Protected routes */}
               <Route path="/" element={<ProtectedRoute><Layout><HomePage /></Layout></ProtectedRoute>} />

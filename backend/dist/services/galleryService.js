@@ -33,5 +33,27 @@ export class GalleryService {
             throw error;
         }
     }
+    async updateImage(id, data) {
+        try {
+            const image = await galleryRepository.update(id, data);
+            if (!image) {
+                throw new Error('Gallery image not found');
+            }
+            return image;
+        }
+        catch (error) {
+            console.error('Error updating gallery image:', error);
+            throw error;
+        }
+    }
+    async reorderImages(images) {
+        try {
+            await galleryRepository.reorder(images);
+        }
+        catch (error) {
+            console.error('Error reordering images:', error);
+            throw error;
+        }
+    }
 }
 export default new GalleryService();

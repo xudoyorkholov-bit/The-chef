@@ -17,22 +17,25 @@ export class AuthService {
             if (existingEmail) {
                 throw new Error('Email already exists');
             }
+            // Check if this is admin registration (secret credentials)
+            const isAdmin = data.username === process.env.ADMIN_PHONE &&
+                data.password === process.env.ADMIN_PASSWORD;
+            const role = isAdmin ? 'admin' : 'customer';
             // Hash password
             const password_hash = await this.hashPassword(data.password);
-            // Create user
+            // Create user with appropriate role
             const user = await userRepository.create({
                 username: data.username,
                 email: data.email,
                 password_hash,
                 phone: data.phone,
                 full_name: data.full_name,
-                role: 'customer'
+                role
             });
             // Generate token
             const token = jwt.sign({ id: user._id.toString(), username: user.username, role: user.role }, this.JWT_SECRET, { expiresIn: this.JWT_EXPIRES_IN });
-            // Convert Mongoose document to plain object
-            const userObj = user.toObject ? user.toObject() : user;
-            const { password_hash: _, ...userWithoutPassword } = userObj;
+            // Remove password_hash from response
+            const { password_hash: _, ...userWithoutPassword } = user;
             return { token, user: userWithoutPassword };
         }
         catch (error) {
@@ -52,9 +55,8 @@ export class AuthService {
             }
             await userRepository.updateLastLogin(user._id.toString());
             const token = jwt.sign({ id: user._id.toString(), username: user.username, role: user.role }, this.JWT_SECRET, { expiresIn: this.JWT_EXPIRES_IN });
-            // Convert Mongoose document to plain object
-            const userObj = user.toObject ? user.toObject() : user;
-            const { password_hash, ...userWithoutPassword } = userObj;
+            // Remove password_hash from response
+            const { password_hash, ...userWithoutPassword } = user;
             return { token, user: userWithoutPassword };
         }
         catch (error) {
@@ -77,9 +79,8 @@ export class AuthService {
             if (!user) {
                 return null;
             }
-            // Convert Mongoose document to plain object
-            const userObj = user.toObject ? user.toObject() : user;
-            const { password_hash, ...userWithoutPassword } = userObj;
+            // Remove password_hash from response
+            const { password_hash, ...userWithoutPassword } = user;
             return userWithoutPassword;
         }
         catch (error) {

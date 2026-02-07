@@ -153,6 +153,12 @@ const MenuPage: React.FC = () => {
     return acc;
   }, {} as Record<string, MenuItem[]>);
 
+  // Sort categories: food first, then beverage
+  const sortedCategories = Object.keys(groupedItems).sort((a, b) => {
+    const order = { food: 0, beverage: 1 };
+    return (order[a as keyof typeof order] || 999) - (order[b as keyof typeof order] || 999);
+  });
+
   const handleAddToCart = (item: MenuItem) => {
     console.log('Adding to cart:', item);
     try {
@@ -193,20 +199,40 @@ const MenuPage: React.FC = () => {
           ))}
         </div>
 
-        {Object.entries(groupedItems).map(([category, items]) => (
-          <div key={category} className="menu-category">
-            <h2 className="category-title">
-              {categoryNames[category]}
-            </h2>
-            <div className="menu-grid">
-              {items.map(item => {
+        {sortedCategories.map((category) => {
+          const items = groupedItems[category];
+          return (
+            <div key={category} className="menu-category">
+              <h2 className="category-title">
+                {categoryNames[category]}
+              </h2>
+              <div className="menu-grid">
+                {items.map(item => {
                 const itemName = language === 'ru' && item.name_ru ? item.name_ru : item.name;
                 const itemDescription = language === 'ru' && item.description_ru ? item.description_ru : item.description;
+                
+                // Construct full image URL
+                const getImageUrl = (url: string) => {
+                  if (!url) return 'https://via.placeholder.com/300x200?text=Rasm+yo%27q';
+                  if (url.startsWith('http')) return url;
+                  // Remove /api from the URL for static files
+                  const baseUrl = import.meta.env.VITE_API_URL.replace('/api', '');
+                  return `${baseUrl}${url}`;
+                };
                 
                 return (
                   <div key={item.id} className="menu-item">
                     {item.image_url && (
-                      <img src={item.image_url} alt={itemName} className="menu-item-image" />
+                      <img 
+                        src={getImageUrl(item.image_url)} 
+                        alt={itemName} 
+                        className="menu-item-image"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          console.error('Rasm yuklanmadi:', item.image_url);
+                          target.src = 'https://via.placeholder.com/300x200?text=Rasm+topilmadi';
+                        }}
+                      />
                     )}
                     <div className="menu-item-content">
                       <h3 className="menu-item-name">{itemName}</h3>
@@ -227,7 +253,8 @@ const MenuPage: React.FC = () => {
               })}
             </div>
           </div>
-        ))}
+        );
+        })}
       </div>
     </div>
   );

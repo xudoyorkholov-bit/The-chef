@@ -60,6 +60,32 @@ export class MessageController {
       }
     }
   }
+
+  async markAsRead(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      await messageService.markAsRead(id);
+      res.status(204).send();
+    } catch (error) {
+      console.error('Error in markAsRead:', error);
+      const err = error as Error;
+      if (err.message === 'Message not found') {
+        res.status(404).json({
+          error: {
+            message: 'Message not found',
+            code: 'NOT_FOUND'
+          }
+        });
+      } else {
+        res.status(500).json({
+          error: {
+            message: 'Failed to mark message as read',
+            code: 'INTERNAL_ERROR'
+          }
+        });
+      }
+    }
+  }
 }
 
 export default new MessageController();

@@ -13,10 +13,22 @@ interface AuthRequest extends Request {
 const testimonialController = {
   async getAllTestimonials(req: Request, res: Response): Promise<void> {
     try {
+      // Admin uchun barcha fikrlarni qaytarish
       const testimonials = await testimonialService.getAllTestimonials();
       res.json(testimonials);
     } catch (error) {
       console.error('Get testimonials error:', error);
+      res.status(500).json({ error: 'Failed to fetch testimonials' });
+    }
+  },
+
+  async getApprovedTestimonials(req: Request, res: Response): Promise<void> {
+    try {
+      // Foydalanuvchilar uchun faqat tasdiqlangan fikrlarni qaytarish
+      const testimonials = await testimonialService.getApprovedTestimonials();
+      res.json(testimonials);
+    } catch (error) {
+      console.error('Get approved testimonials error:', error);
       res.status(500).json({ error: 'Failed to fetch testimonials' });
     }
   },

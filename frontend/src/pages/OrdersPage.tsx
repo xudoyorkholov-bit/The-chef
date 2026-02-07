@@ -13,28 +13,45 @@ const OrdersPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchOrders();
+    // Birinchi marta yuklash
+    const initialLoad = async () => {
+      try {
+        setLoading(true);
+        const data = await ordersApi.getAll();
+        setOrders(data);
+      } catch (error) {
+        console.error('Buyurtmalarni yuklashda xatolik:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    initialLoad();
+    
+    // Har 5 sekundda buyurtmalarni yangilash (jimgina, loading ko'rsatmasdan)
+    const interval = setInterval(() => {
+      fetchOrders();
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const fetchOrders = async () => {
     try {
-      setLoading(true);
+      // setLoading(true) ni olib tashladik - faqat birinchi yuklanishda loading ko'rsatiladi
       const data = await ordersApi.getAll();
       setOrders(data);
     } catch (error) {
       console.error('Buyurtmalarni yuklashda xatolik:', error);
-    } finally {
-      setLoading(false);
     }
   };
 
   const getStatusText = (status: string) => {
     const statusMap: Record<string, { uz: string; ru: string }> = {
       pending: { uz: 'Kutilmoqda', ru: 'Ожидается' },
-      confirmed: { uz: 'Tasdiqlandi', ru: 'Подтверждено' },
-      preparing: { uz: 'Tayyorlanmoqda', ru: 'Готовится' },
-      ready: { uz: 'Tayyor', ru: 'Готово' },
-      completed: { uz: 'Bajarildi', ru: 'Выполнено' },
+      confirmed: { uz: 'Qabul qilindi', ru: 'Принято' },
+      delivering: { uz: 'Yo\'lda', ru: 'В пути' },
+      completed: { uz: 'Yetib keldi', ru: 'Доставлено' },
       cancelled: { uz: 'Bekor qilindi', ru: 'Отменено' }
     };
     return statusMap[status]?.[language] || status;
@@ -72,7 +89,7 @@ const OrdersPage: React.FC = () => {
         
         <div className="orders-list">
           {orders.map(order => (
-            <Card key={order.id} className="order-card">
+            <Card key={order.id} className={`order-card status-${order.status}`}>
               <div className="order-header">
                 <span className="order-number">{language === 'uz' ? 'Buyurtma' : 'Заказ'} {order.orderNumber}</span>
                 <span className={`order-status ${order.status}`}>

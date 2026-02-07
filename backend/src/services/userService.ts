@@ -24,6 +24,10 @@ interface IUser {
 }
 
 const userService = {
+  async getAllUsers(): Promise<IUser[]> {
+    return await userRepository.findAll();
+  },
+
   async getProfile(userId: string): Promise<IUser | null> {
     return await userRepository.findById(userId);
   },

@@ -7,7 +7,7 @@ export interface IMenuItem extends Document {
   description: string;
   description_ru?: string;
   price: number;
-  category: 'appetizer' | 'main' | 'dessert' | 'beverage';
+  category: 'food' | 'beverage';
   image_url: string;
   available: boolean;
   created_at: Date;
@@ -39,7 +39,7 @@ const MenuItemSchema = new Schema<IMenuItem>({
   category: {
     type: String,
     required: true,
-    enum: ['appetizer', 'main', 'dessert', 'beverage']
+    enum: ['food', 'beverage']
   },
   image_url: {
     type: String,

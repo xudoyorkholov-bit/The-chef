@@ -13,6 +13,11 @@ interface ITestimonial {
 
 const testimonialRepository = {
   async findAll(): Promise<ITestimonial[]> {
+    const testimonials = JsonDatabase.find('testimonials', {});
+    return testimonials.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  },
+
+  async findApproved(): Promise<ITestimonial[]> {
     const testimonials = JsonDatabase.find('testimonials', { status: 'approved' });
     return testimonials.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
   },

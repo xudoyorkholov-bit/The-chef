@@ -46,6 +46,12 @@ const galleryRepository = {
 
   async updateDisplayOrder(id: string, display_order: number): Promise<IGallery | null> {
     return JsonDatabase.update('gallery', id, { display_order });
+  },
+
+  async reorder(images: { id: string; display_order: number }[]): Promise<void> {
+    for (const img of images) {
+      await JsonDatabase.update('gallery', img.id, { display_order: img.display_order });
+    }
   }
 };
 

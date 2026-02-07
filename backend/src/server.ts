@@ -13,6 +13,7 @@ import galleryRoutes from './routes/galleryRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import testimonialRoutes from './routes/testimonialRoutes.js';
+import uploadRoutes from './routes/uploadRoutes.js';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -71,6 +72,7 @@ app.use(cookieParser());
 
 // Serve static files from uploads directory
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')));
 
 // Health check endpoint
 app.get('/health', (_req, res) => {
@@ -86,6 +88,7 @@ app.use('/api/gallery', galleryRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/testimonials', testimonialRoutes);
+app.use('/api/upload', uploadRoutes);
 
 // Error handling
 app.use(notFoundHandler);

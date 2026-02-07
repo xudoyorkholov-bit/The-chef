@@ -13,6 +13,7 @@ import galleryRoutes from './routes/galleryRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import testimonialRoutes from './routes/testimonialRoutes.js';
+import uploadRoutes from './routes/uploadRoutes.js';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -29,6 +30,8 @@ const allowedOrigins = [
     'http://10.54.8.99:3000',
     'http://10.54.8.99:3001',
     'https://xudoyorkholov-bit.github.io',
+    'https://the-chef-cafe-frontend.onrender.com',
+    'https://the-chef-caffe.onrender.com',
     process.env.CORS_ORIGIN
 ].filter(Boolean); // Remove undefined values
 app.use(cors({
@@ -62,6 +65,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // Serve static files from uploads directory
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')));
 // Health check endpoint
 app.get('/health', (_req, res) => {
     res.json({ status: 'ok', message: 'The Chef API is running' });
@@ -75,6 +79,7 @@ app.use('/api/gallery', galleryRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/testimonials', testimonialRoutes);
+app.use('/api/upload', uploadRoutes);
 // Error handling
 app.use(notFoundHandler);
 app.use(errorHandler);

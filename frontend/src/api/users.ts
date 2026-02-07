@@ -2,6 +2,11 @@ import client from './client';
 import { User } from '../types';
 
 export const usersApi = {
+  async getAll(): Promise<User[]> {
+    const response = await client.get('/users');
+    return response.data;
+  },
+
   async getProfile(): Promise<User> {
     const response = await client.get('/users/profile');
     return response.data;

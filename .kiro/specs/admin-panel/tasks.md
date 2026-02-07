@@ -50,6 +50,7 @@
 - [x] 2. Create admin layout and navigation
 
 
+
   - AdminLayout component yaratish
   - AdminSidebar component yaratish
   - Admin routes qo'shish (App.tsx)

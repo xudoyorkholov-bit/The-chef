@@ -1,26 +1,31 @@
-import Testimonial from '../models/Testimonial.js';
+import { JsonDatabase } from '../database/jsonDb.js';
 const testimonialRepository = {
     async findAll() {
-        return await Testimonial.find({ status: 'approved' })
-            .sort({ created_at: -1 })
-            .populate('user_id', 'username full_name');
+        const testimonials = JsonDatabase.find('testimonials', {});
+        return testimonials.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    },
+    async findApproved() {
+        const testimonials = JsonDatabase.find('testimonials', { status: 'approved' });
+        return testimonials.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     },
     async findById(id) {
-        return await Testimonial.findById(id).populate('user_id', 'username full_name');
+        return JsonDatabase.findById('testimonials', id);
     },
     async findByUserId(userId) {
-        return await Testimonial.find({ user_id: userId }).sort({ created_at: -1 });
+        const testimonials = JsonDatabase.find('testimonials', { user_id: userId });
+        return testimonials.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     },
     async create(testimonialData) {
-        const testimonial = new Testimonial(testimonialData);
-        return await testimonial.save();
+        return JsonDatabase.create('testimonials', {
+            ...testimonialData,
+            status: 'pending'
+        });
     },
     async updateStatus(id, status) {
-        return await Testimonial.findByIdAndUpdate(id, { status, updated_at: new Date() }, { new: true });
+        return JsonDatabase.update('testimonials', id, { status });
     },
     async delete(id) {
-        const result = await Testimonial.findByIdAndDelete(id);
-        return result !== null;
+        return JsonDatabase.delete('testimonials', id);
     }
 };
 export default testimonialRepository;

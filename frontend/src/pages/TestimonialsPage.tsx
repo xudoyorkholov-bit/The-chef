@@ -25,7 +25,7 @@ const TestimonialsPage: React.FC = () => {
 
   const loadTestimonials = async () => {
     try {
-      const data = await testimonialsApi.getAll();
+      const data = await testimonialsApi.getApproved();
       setTestimonials(data);
     } catch (error) {
       console.error('Failed to load testimonials:', error);

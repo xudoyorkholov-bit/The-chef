@@ -14,9 +14,10 @@ export interface IOrder extends Document {
   customer_name?: string;
   customer_phone?: string;
   customer_email?: string;
+  delivery_address?: string;
   items: IOrderItem[];
   total: number;
-  status: 'pending' | 'confirmed' | 'preparing' | 'ready' | 'completed' | 'cancelled';
+  status: 'pending' | 'confirmed' | 'delivering' | 'completed' | 'cancelled';
   notes?: string;
   created_at: Date;
   updated_at: Date;
@@ -66,6 +67,10 @@ const OrderSchema = new Schema<IOrder>({
     lowercase: true,
     trim: true
   },
+  delivery_address: {
+    type: String,
+    trim: true
+  },
   items: {
     type: [OrderItemSchema],
     required: true,
@@ -83,7 +88,7 @@ const OrderSchema = new Schema<IOrder>({
   },
   status: {
     type: String,
-    enum: ['pending', 'confirmed', 'preparing', 'ready', 'completed', 'cancelled'],
+    enum: ['pending', 'confirmed', 'delivering', 'completed', 'cancelled'],
     default: 'pending'
   },
   notes: {

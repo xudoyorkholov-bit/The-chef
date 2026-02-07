@@ -56,8 +56,8 @@
 }
 
 .menu-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
   gap: 16px;
   padding: 0 20px;
   position: relative;
@@ -81,6 +81,8 @@
   transform: none !important;
   transition: none !important;
   will-change: auto !important;
+  width: 100%;
+  max-width: 100%;
 }
 
 .menu-item:hover,
@@ -264,7 +266,7 @@
 /* Tablet - 3 columns */
 @media (max-width: 1024px) {
   .menu-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 12px;
     padding: 0 16px;
   }
@@ -302,7 +304,7 @@
   }
 
   .menu-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 10px;
     padding: 0 12px;
   }
@@ -368,7 +370,7 @@
   }
 
   .menu-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px;
     padding: 0 8px;
   }

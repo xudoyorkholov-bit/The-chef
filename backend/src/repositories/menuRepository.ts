@@ -14,7 +14,7 @@ interface IMenuItem {
 
 const menuRepository = {
   async findAll(): Promise<IMenuItem[]> {
-    const items = JsonDatabase.find('menuItems', { is_available: true });
+    const items = JsonDatabase.find('menuItems', {});
     return items.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
   },
 
@@ -23,7 +23,7 @@ const menuRepository = {
   },
 
   async findByCategory(category: string): Promise<IMenuItem[]> {
-    const items = JsonDatabase.find('menuItems', { category, is_available: true });
+    const items = JsonDatabase.find('menuItems', { category });
     return items.sort((a, b) => a.name.localeCompare(b.name));
   },
 

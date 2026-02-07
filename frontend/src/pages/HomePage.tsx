@@ -1,121 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import Button from '../components/Button';
-import Toast from '../components/Toast';
 import './HomePage.css';
-
-interface BeforeInstallPromptEvent extends Event {
-  prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
-}
 
 const HomePage: React.FC = () => {
   const { t, language } = useLanguage();
   const navigate = useNavigate();
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
-  const [isInstalled, setIsInstalled] = useState(false);
-  const [showToast, setShowToast] = useState(false);
-  const [toastMessage, setToastMessage] = useState('');
-  const [toastType, setToastType] = useState<'success' | 'error' | 'info'>('success');
-
-  useEffect(() => {
-    // Check if app is already installed
-    if (window.matchMedia('(display-mode: standalone)').matches) {
-      setIsInstalled(true);
-    }
-
-    // Listen for beforeinstallprompt event
-    const handler = (e: Event) => {
-      e.preventDefault();
-      setDeferredPrompt(e as BeforeInstallPromptEvent);
-    };
-
-    window.addEventListener('beforeinstallprompt', handler);
-
-    // Listen for appinstalled event
-    const installedHandler = () => {
-      setIsInstalled(true);
-      setDeferredPrompt(null);
-      
-      // Ilova o'rnatilganda muvaffaqiyatli xabar ko'rsatamiz
-      const successMessage = language === 'uz'
-        ? "🎉 Ajoyib! Ilova muvaffaqiyatli o'rnatildi! Endi uni bosh ekraningizdan ochishingiz mumkin."
-        : language === 'ru'
-        ? "🎉 Отлично! Приложение успешно установлено! Теперь вы можете открыть его с главного экрана."
-        : "🎉 Great! App installed successfully! You can now open it from your home screen.";
-      
-      setToastMessage(successMessage);
-      setToastType('success');
-      setShowToast(true);
-    };
-
-    window.addEventListener('appinstalled', installedHandler);
-
-    return () => {
-      window.removeEventListener('beforeinstallprompt', handler);
-      window.removeEventListener('appinstalled', installedHandler);
-    };
-  }, []);
-
-  const handleInstallClick = async () => {
-    // Agar deferredPrompt mavjud bo'lsa, uni ishlatamiz
-    if (deferredPrompt) {
-      try {
-        await deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        
-        if (outcome === 'accepted') {
-          const successMessage = language === 'uz'
-            ? "🎉 Ajoyib! Ilova o'rnatilmoqda... Bir necha soniya kuting."
-            : language === 'ru'
-            ? "🎉 Отлично! Приложение устанавливается... Подождите несколько секунд."
-            : "🎉 Great! App is installing... Please wait a few seconds.";
-          
-          setToastMessage(successMessage);
-          setToastType('success');
-          setShowToast(true);
-          
-          // appinstalled event avtomatik ravishda isInstalled ni true qiladi
-        } else {
-          const cancelMessage = language === 'uz'
-            ? "O'rnatish bekor qilindi. Xohlasangiz keyinroq o'rnatishingiz mumkin."
-            : language === 'ru'
-            ? "Установка отменена. Вы можете установить позже."
-            : "Installation cancelled. You can install later.";
-          
-          setToastMessage(cancelMessage);
-          setToastType('info');
-          setShowToast(true);
-        }
-        
-        setDeferredPrompt(null);
-        return;
-      } catch (error) {
-        console.error('Install error:', error);
-        const errorMessage = language === 'uz'
-          ? "❌ Xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring."
-          : language === 'ru'
-          ? "❌ Произошла ошибка. Пожалуйста, попробуйте снова."
-          : "❌ An error occurred. Please try again.";
-        
-        setToastMessage(errorMessage);
-        setToastType('error');
-        setShowToast(true);
-      }
-    } else {
-      // Agar deferredPrompt yo'q bo'lsa, qo'lda o'rnatish yo'lini ko'rsatamiz
-      const infoMessage = language === 'uz'
-        ? "📱 Ilovani o'rnatish uchun:\n\n1. Chrome brauzerida ochilganligiga ishonch hosil qiling\n2. Manzil satrida o'rnatish belgisini (⬇️) bosing\nYOKI\n3. Brauzer menyusidan (⋮) 'Bosh ekranga qo'shish' ni tanlang"
-        : language === 'ru'
-        ? "📱 Чтобы установить приложение:\n\n1. Убедитесь, что открыто в Chrome\n2. Нажмите значок установки (⬇️) в адресной строке\nИЛИ\n3. Выберите 'Добавить на главный экран' в меню браузера (⋮)"
-        : "📱 To install the app:\n\n1. Make sure you're using Chrome\n2. Tap the install icon (⬇️) in the address bar\nOR\n3. Select 'Add to Home Screen' from browser menu (⋮)";
-      
-      setToastMessage(infoMessage);
-      setToastType('info');
-      setShowToast(true);
-    }
-  };
 
   const handleSecondButtonClick = () => {
     navigate('/gallery');
@@ -205,37 +96,6 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {!isInstalled && (
-        <section className="pwa-banner">
-          <div className="container">
-            <div className="pwa-banner-content">
-              <div className="pwa-banner-icon">
-                📱
-              </div>
-              <div className="pwa-banner-text">
-                <h3>
-                  {language === 'uz' ? "Ilovani Telefoningizga O'rnating!" : 
-                   language === 'ru' ? "Установите Приложение на Телефон!" : 
-                   "Install App on Your Phone!"}
-                </h3>
-                <p>
-                  {language === 'uz' ? "Tezroq kirish, offline ishlash va ko'proq imkoniyatlar!" : 
-                   language === 'ru' ? "Быстрый доступ, работа офлайн и больше возможностей!" : 
-                   "Faster access, offline mode and more features!"}
-                </p>
-              </div>
-              <div className="pwa-banner-action">
-                <Button onClick={handleInstallClick}>
-                  {language === 'uz' ? "O'rnatish" : 
-                   language === 'ru' ? "Установить" : 
-                   "Install"}
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       <section className="testimonials">
         <div className="container">
           <h2 className="section-title">{t('home.customerReviews')}</h2>
@@ -259,14 +119,6 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      <Toast
-        message={toastMessage}
-        type={toastType}
-        isVisible={showToast}
-        onClose={() => setShowToast(false)}
-        duration={8000}
-      />
     </div>
   );
 };

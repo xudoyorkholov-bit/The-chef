@@ -1,24 +1,36 @@
-import Gallery from '../models/Gallery.js';
+import { JsonDatabase } from '../database/jsonDb.js';
 const galleryRepository = {
     async findAll() {
-        return await Gallery.find().sort({ display_order: 1, created_at: -1 });
+        const items = JsonDatabase.find('gallery');
+        return items.sort((a, b) => {
+            const orderCompare = (a.display_order || 0) - (b.display_order || 0);
+            if (orderCompare !== 0)
+                return orderCompare;
+            return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+        });
     },
     async findById(id) {
-        return await Gallery.findById(id);
+        return JsonDatabase.findById('gallery', id);
     },
     async create(galleryData) {
-        const gallery = new Gallery(galleryData);
-        return await gallery.save();
+        return JsonDatabase.create('gallery', {
+            ...galleryData,
+            display_order: galleryData.display_order || 0
+        });
     },
     async update(id, galleryData) {
-        return await Gallery.findByIdAndUpdate(id, galleryData, { new: true });
+        return JsonDatabase.update('gallery', id, galleryData);
     },
     async delete(id) {
-        const result = await Gallery.findByIdAndDelete(id);
-        return result !== null;
+        return JsonDatabase.delete('gallery', id);
     },
     async updateDisplayOrder(id, display_order) {
-        return await Gallery.findByIdAndUpdate(id, { display_order }, { new: true });
+        return JsonDatabase.update('gallery', id, { display_order });
+    },
+    async reorder(images) {
+        for (const img of images) {
+            await JsonDatabase.update('gallery', img.id, { display_order: img.display_order });
+        }
     }
 };
 export default galleryRepository;

@@ -1,987 +1,969 @@
 {
   "users": [
     {
-      "_id": "ml7kmx56q8sghj836ai",
-      "username": "+998123456789",
-      "email": "998123456789@thechef.uz",
-      "password_hash": "$2b$10$6jaEUBo1F8LGu4iyTHWbWuZyIoqPY2b8.JckjZUWosV1dJj1LrNqO",
-      "phone": "+998949495225",
-      "full_name": "Xudoyor Kholov ",
-      "role": "customer",
-      "payment_methods": [],
-      "createdAt": "2026-02-04T05:12:44.107Z",
-      "updatedAt": "2026-02-04T05:41:24.032Z",
-      "profile_picture_url": "/uploads/profiles/profile-1770182906065-90154933.jpg",
-      "last_login": "2026-02-04T05:21:15.315Z"
-    },
-    {
-      "_id": "ml7loegm255q045bq31",
-      "username": "+998949495227",
-      "email": "998949495225@thechef.uz",
-      "password_hash": "$2b$10$NtEXkouuTGNUClkgDyb1O.vkAAGNZ7kdPepuQsZ.Tf73tQ1VmPgsa",
-      "phone": "+998949495227",
-      "full_name": "Xudoyor",
-      "role": "customer",
-      "payment_methods": [],
-      "createdAt": "2026-02-04T05:41:52.822Z",
-      "updatedAt": "2026-02-04T05:51:43.201Z",
-      "last_login": "2026-02-04T05:51:33.620Z"
-    },
-    {
-      "_id": "ml7m3p5i1xy1yl0s3bm",
-      "username": "+998111111111",
-      "email": "998111111111@thechef.uz",
-      "password_hash": "$2b$10$5q2.CLK/X97t4LSrXDMUGO9ETGHad2qCEcnKdQkxHSqV6JasESFQy",
-      "phone": "+998111111111",
-      "full_name": "11",
-      "role": "customer",
-      "payment_methods": [],
-      "createdAt": "2026-02-04T05:53:46.518Z",
-      "updatedAt": "2026-02-04T06:01:44.168Z",
-      "last_login": "2026-02-04T06:01:33.432Z"
-    },
-    {
-      "_id": "ml7mfq4md5zwkzxqf45",
-      "username": "+998111111112",
-      "email": "998111111112@thechef.uz",
-      "password_hash": "$2b$10$uNLdB.iHHIk1T6QnfE3upe2K2UQZbIw.KNO9IPqKTxCJ6jvvFtcYW",
-      "phone": "+998111111112",
-      "full_name": "VTYUYV",
-      "role": "customer",
-      "payment_methods": [],
-      "createdAt": "2026-02-04T06:03:07.654Z",
-      "updatedAt": "2026-02-04T06:03:22.755Z"
-    },
-    {
-      "_id": "ml7ml3i66cf286jhiok",
-      "username": "+998111111122",
-      "email": "998111111122@thechef.uz",
-      "password_hash": "$2b$10$xnRm/tHZq8KfhPwE3I5PyOdnZJ1yn1jxfg918RCOiJkPEWPB0s5jC",
-      "phone": "+998111111122",
-      "full_name": "Xudoyor Kholov ",
-      "role": "customer",
-      "payment_methods": [
-        {
-          "id": "1770185919531",
-          "cardNumber": "5383 **** **** 1717",
-          "cardHolder": "XUDOYOR",
-          "expiryDate": "12.02",
-          "isDefault": true
-        }
-      ],
-      "createdAt": "2026-02-04T06:07:18.270Z",
-      "updatedAt": "2026-02-04T06:41:06.021Z",
-      "last_login": "2026-02-04T06:19:09.989Z",
-      "profile_picture_url": "/uploads/profiles/profile-1770187252996-178283759.jpg"
-    },
-    {
       "_id": "ml7o8scuoprjwvjfsjm",
       "username": "+998777777777",
       "email": "998777777777@thechef.uz",
-      "password_hash": "$2b$10$0QysqqWTfrJFzU7bvz/vcOe.ANfNJVsJetg.Um/qAIjay/rB4r.C.",
+      "password_hash": "$2b$10$hAutLhkdIrTVzZ32JC3syePG3jxOu2XyB6xXvI9jLEtZ5ixN8d9Dm",
       "phone": "+998777777777",
       "full_name": "admin",
       "role": "admin",
       "payment_methods": [],
       "createdAt": "2026-02-04T06:53:43.182Z",
-      "updatedAt": "2026-02-04T06:53:43.182Z"
+      "updatedAt": "2026-02-07T11:10:00.621Z",
+      "last_login": "2026-02-07T11:10:00.621Z"
+    },
+    {
+      "_id": "ml9h038al3eg8dmnj1",
+      "username": "+998896498389",
+      "email": "998896498389@thechef.uz",
+      "password_hash": "$2b$10$cTsY1FMpOz3O8ZItHGPlpuSMb2dOoPRZYrvyT8blSGEWtAECA67ye",
+      "phone": "+998896498389",
+      "full_name": "Ad",
+      "role": "customer",
+      "payment_methods": [],
+      "createdAt": "2026-02-05T13:06:32.410Z",
+      "updatedAt": "2026-02-05T13:06:32.411Z"
     }
   ],
   "menuItems": [
     {
-      "_id": "menu001",
-      "name": "Osh",
-      "name_en": "Plov",
-      "name_ru": "Плов",
-      "description": "An'anaviy o'zbek oshi, go'sht va sabzavotlar bilan",
-      "description_en": "Traditional Uzbek pilaf with meat and vegetables",
-      "description_ru": "Традиционный узбекский плов с мясом и овощами",
-      "price": 35000,
-      "category": "main",
-      "image_url": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": false,
-      "preparation_time": 30,
-      "calories": 650,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
+      "_id": "ml7sjsou67cnp57qa9d",
+      "name": "Test Taom",
+      "description": "Test uchun taom",
+      "price": 10000,
+      "category": "food",
+      "image_url": "/uploads/1770195254892-941210463.webp",
+      "available": true,
+      "createdAt": "2026-02-04T08:54:15.294Z",
+      "updatedAt": "2026-02-06T14:05:42.770Z"
     },
     {
-      "_id": "menu002",
-      "name": "Lag'mon",
-      "name_en": "Lagman",
-      "name_ru": "Лагман",
-      "description": "Qo'l bilan cho'zilgan xamir, go'sht va sabzavotlar bilan",
-      "description_en": "Hand-pulled noodles with meat and vegetables",
-      "description_ru": "Лапша ручной работы с мясом и овощами",
-      "price": 28000,
-      "category": "main",
-      "image_url": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": true,
-      "preparation_time": 25,
-      "calories": 550,
-      "allergens": [
-        "gluten"
-      ],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
+      "_id": "mlc482qr5u3u2uornwi",
+      "name": "zor",
+      "description": "scec",
+      "price": 2000000,
+      "category": "food",
+      "image_url": "/uploads/1770456727956-548640087.webp",
+      "available": true,
+      "createdAt": "2026-02-07T09:32:08.550Z",
+      "updatedAt": "2026-02-07T09:32:08.551Z"
     },
     {
-      "_id": "menu003",
-      "name": "Manti",
-      "name_en": "Manti",
-      "name_ru": "Манты",
-      "description": "Bug'da pishirilgan go'shtli xamir",
-      "description_en": "Steamed dumplings with meat",
-      "description_ru": "Паровые пельмени с мясом",
-      "price": 25000,
-      "category": "main",
-      "image_url": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": false,
-      "preparation_time": 35,
-      "calories": 480,
-      "allergens": [
-        "gluten"
-      ],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "menu004",
-      "name": "Shashlik",
-      "name_en": "Shashlik",
-      "name_ru": "Шашлык",
-      "description": "Cho'g'da pishirilgan qo'y go'shti",
-      "description_en": "Grilled lamb skewers",
-      "description_ru": "Шашлык из баранины на углях",
-      "price": 45000,
-      "category": "main",
-      "image_url": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": false,
-      "preparation_time": 20,
-      "calories": 520,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "menu005",
-      "name": "Somsa",
-      "name_en": "Samsa",
-      "name_ru": "Самса",
-      "description": "Tandirda pishirilgan go'shtli pirojnoe",
-      "description_en": "Baked pastry with meat filling",
-      "description_ru": "Выпечка с мясной начинкой из тандыра",
-      "price": 8000,
-      "category": "appetizer",
-      "image_url": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": false,
-      "preparation_time": 15,
-      "calories": 320,
-      "allergens": [
-        "gluten"
-      ],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "menu006",
-      "name": "Norin",
-      "name_en": "Norin",
-      "name_ru": "Норин",
-      "description": "Ot go'shti va xamir bilan tayyorlangan milliy taom",
-      "description_en": "Traditional dish with horse meat and noodles",
-      "description_ru": "Традиционное блюдо с кониной и лапшой",
-      "price": 38000,
-      "category": "main",
-      "image_url": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": false,
-      "preparation_time": 30,
-      "calories": 580,
-      "allergens": [
-        "gluten"
-      ],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "menu007",
-      "name": "Mastava",
-      "name_en": "Mastava",
-      "name_ru": "Мастава",
-      "description": "Go'sht va guruch bilan issiq sho'rva",
-      "description_en": "Hot soup with meat and rice",
-      "description_ru": "Горячий суп с мясом и рисом",
-      "price": 22000,
-      "category": "soup",
-      "image_url": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": false,
-      "preparation_time": 25,
-      "calories": 380,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "menu008",
-      "name": "Shurva",
-      "name_en": "Shurva",
-      "name_ru": "Шурпа",
-      "description": "Qo'y go'shti va sabzavotlar bilan boy sho'rva",
-      "description_en": "Rich soup with lamb and vegetables",
-      "description_ru": "Наваристый суп с бараниной и овощами",
-      "price": 24000,
-      "category": "soup",
-      "image_url": "https://images.unsplash.com/photo-1588566565463-180a5b2090d2?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": false,
-      "preparation_time": 30,
-      "calories": 420,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "menu009",
-      "name": "Dimlama",
-      "name_en": "Dimlama",
-      "name_ru": "Димлама",
-      "description": "Go'sht va sabzavotlar bug'da pishirilgan",
-      "description_en": "Steamed meat and vegetables",
-      "description_ru": "Тушеное мясо с овощами",
-      "price": 32000,
-      "category": "main",
-      "image_url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": false,
-      "preparation_time": 40,
-      "calories": 490,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "menu010",
-      "name": "Qozon kabob",
-      "name_en": "Kazan Kebab",
-      "name_ru": "Казан кебаб",
-      "description": "Qozonda pishirilgan go'sht va kartoshka",
-      "description_en": "Meat and potatoes cooked in kazan",
-      "description_ru": "Мясо с картофелем в казане",
-      "price": 36000,
-      "category": "main",
-      "image_url": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": false,
-      "preparation_time": 35,
-      "calories": 560,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "menu011",
-      "name": "Chuchvara",
-      "name_en": "Chuchvara",
-      "name_ru": "Чучвара",
-      "description": "Mayda go'shtli xamir, sho'rva bilan",
-      "description_en": "Small meat dumplings in broth",
-      "description_ru": "Маленькие пельмени в бульоне",
-      "price": 20000,
-      "category": "soup",
-      "image_url": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": false,
-      "preparation_time": 25,
-      "calories": 380,
-      "allergens": [
-        "gluten"
-      ],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "menu012",
-      "name": "Tandir kabob",
-      "name_en": "Tandoor Kebab",
-      "name_ru": "Тандыр кебаб",
-      "description": "Tandirda pishirilgan mol go'shti",
-      "description_en": "Beef cooked in tandoor",
-      "description_ru": "Говядина приготовленная в тандыре",
-      "price": 42000,
-      "category": "main",
-      "image_url": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": false,
-      "preparation_time": 35,
-      "calories": 580,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "menu013",
-      "name": "Jiz",
-      "name_en": "Jiz",
-      "name_ru": "Жиз",
-      "description": "Qo'y go'shtidan tayyorlangan milliy taom",
-      "description_en": "Traditional dish made from lamb",
-      "description_ru": "Традиционное блюдо из баранины",
-      "price": 40000,
-      "category": "main",
-      "image_url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": false,
-      "preparation_time": 40,
-      "calories": 620,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "menu014",
-      "name": "Hasip",
-      "name_en": "Hasip",
-      "name_ru": "Хасип",
-      "description": "Qo'y ichagi bilan tayyorlangan milliy taom",
-      "description_en": "Traditional sausage dish",
-      "description_ru": "Традиционная колбаса",
-      "price": 35000,
-      "category": "main",
-      "image_url": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": false,
-      "preparation_time": 30,
-      "calories": 550,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "menu015",
-      "name": "Qovurma lag'mon",
-      "name_en": "Fried Lagman",
-      "name_ru": "Жареный лагман",
-      "description": "Qovurilgan lag'mon, go'sht va sabzavotlar bilan",
-      "description_en": "Fried noodles with meat and vegetables",
-      "description_ru": "Жареная лапша с мясом и овощами",
-      "price": 30000,
-      "category": "main",
-      "image_url": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500",
-      "is_available": true,
-      "is_vegetarian": false,
-      "is_spicy": true,
-      "preparation_time": 25,
-      "calories": 600,
-      "allergens": [
-        "gluten"
-      ],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink001",
-      "name": "Choy (qora)",
-      "name_en": "Black Tea",
-      "name_ru": "Черный чай",
-      "description": "An'anaviy qora choy",
-      "description_en": "Traditional black tea",
-      "description_ru": "Традиционный черный чай",
-      "price": 5000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 5,
-      "calories": 2,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink002",
-      "name": "Choy (ko'k)",
-      "name_en": "Green Tea",
-      "name_ru": "Зеленый чай",
-      "description": "Yangi damlangan ko'k choy",
-      "description_en": "Freshly brewed green tea",
-      "description_ru": "Свежезаваренный зеленый чай",
-      "price": 5000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 5,
-      "calories": 2,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink003",
-      "name": "Ayron",
-      "name_en": "Ayran",
-      "name_ru": "Айран",
-      "description": "Milliy sut ichimlik",
-      "description_en": "Traditional yogurt drink",
-      "description_ru": "Традиционный йогуртовый напиток",
-      "price": 8000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 3,
-      "calories": 50,
-      "allergens": [
-        "dairy"
-      ],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink004",
-      "name": "Kompot",
-      "name_en": "Kompot",
-      "name_ru": "Компот",
-      "description": "Quritilgan mevalardan tayyorlangan ichimlik",
-      "description_en": "Drink made from dried fruits",
-      "description_ru": "Напиток из сухофруктов",
+      "_id": "mlc4uj6xc4ahqqbpjnd",
+      "name": "Uds",
+      "description": "Dhd",
       "price": 7000,
       "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1546173159-315724a31696?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 5,
-      "calories": 80,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink005",
-      "name": "Sharbat",
-      "name_en": "Sharbat",
-      "name_ru": "Шербет",
-      "description": "Shirin mevali ichimlik",
-      "description_en": "Sweet fruit drink",
-      "description_ru": "Сладкий фруктовый напиток",
-      "price": 10000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 5,
-      "calories": 120,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink006",
-      "name": "Limonad",
-      "name_en": "Lemonade",
-      "name_ru": "Лимонад",
-      "description": "Yangi limon bilan tayyorlangan",
-      "description_en": "Made with fresh lemons",
-      "description_ru": "Приготовлен из свежих лимонов",
-      "price": 12000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9d?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 5,
-      "calories": 100,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink007",
-      "name": "Qora kofe",
-      "name_en": "Black Coffee",
-      "name_ru": "Черный кофе",
-      "description": "Yangi qaynatilgan kofe",
-      "description_en": "Freshly brewed coffee",
-      "description_ru": "Свежесваренный кофе",
-      "price": 15000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 5,
-      "calories": 5,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink008",
-      "name": "Latte",
-      "name_en": "Latte",
-      "name_ru": "Латте",
-      "description": "Kofe va sut aralashmasi",
-      "description_en": "Coffee with milk",
-      "description_ru": "Кофе с молоком",
-      "price": 18000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 7,
-      "calories": 150,
-      "allergens": [
-        "dairy"
-      ],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink009",
-      "name": "Cappuccino",
-      "name_en": "Cappuccino",
-      "name_ru": "Капучино",
-      "description": "Kofe, sut va ko'pik",
-      "description_en": "Coffee with milk and foam",
-      "description_ru": "Кофе с молоком и пенкой",
-      "price": 18000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 7,
-      "calories": 120,
-      "allergens": [
-        "dairy"
-      ],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink010",
-      "name": "Espresso",
-      "name_en": "Espresso",
-      "name_ru": "Эспрессо",
-      "description": "Kuchli qora kofe",
-      "description_en": "Strong black coffee",
-      "description_ru": "Крепкий черный кофе",
-      "price": 12000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 3,
-      "calories": 3,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink011",
-      "name": "Moxito",
-      "name_en": "Mojito",
-      "name_ru": "Мохито",
-      "description": "Yalpiz va limon bilan sovuq ichimlik",
-      "description_en": "Cold drink with mint and lemon",
-      "description_ru": "Холодный напиток с мятой и лимоном",
-      "price": 20000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 7,
-      "calories": 140,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink012",
-      "name": "Smoothie (aralash mevali)",
-      "name_en": "Mixed Fruit Smoothie",
-      "name_ru": "Смузи из смешанных фруктов",
-      "description": "Yangi mevalardan tayyorlangan",
-      "description_en": "Made from fresh fruits",
-      "description_ru": "Приготовлен из свежих фруктов",
-      "price": 22000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 5,
-      "calories": 180,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink013",
-      "name": "Apelsin sharbati",
-      "name_en": "Orange Juice",
-      "name_ru": "Апельсиновый сок",
-      "description": "Yangi siqilgan apelsin sharbati",
-      "description_en": "Freshly squeezed orange juice",
-      "description_ru": "Свежевыжатый апельсиновый сок",
-      "price": 15000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 5,
-      "calories": 110,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink014",
-      "name": "Olma sharbati",
-      "name_en": "Apple Juice",
-      "name_ru": "Яблочный сок",
-      "description": "Yangi siqilgan olma sharbati",
-      "description_en": "Freshly squeezed apple juice",
-      "description_ru": "Свежевыжатый яблочный сок",
-      "price": 15000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1568471173238-64ed8e7e9b0f?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 5,
-      "calories": 115,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
-    },
-    {
-      "_id": "drink015",
-      "name": "Mineral suv",
-      "name_en": "Mineral Water",
-      "name_ru": "Минеральная вода",
-      "description": "Gazlangan/gazsiz mineral suv",
-      "description_en": "Sparkling/still mineral water",
-      "description_ru": "Газированная/негазированная минеральная вода",
-      "price": 5000,
-      "category": "beverage",
-      "image_url": "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=500",
-      "is_available": true,
-      "is_vegetarian": true,
-      "is_spicy": false,
-      "preparation_time": 1,
-      "calories": 0,
-      "allergens": [],
-      "createdAt": "2026-02-04T06:00:00.000Z",
-      "updatedAt": "2026-02-04T06:00:00.000Z"
+      "image_url": "/uploads/1770457775782-484711868.webp",
+      "available": true,
+      "createdAt": "2026-02-07T09:49:36.297Z",
+      "updatedAt": "2026-02-07T09:49:36.297Z"
     }
   ],
   "orders": [
     {
-      "_id": "ml7mz2av3xt39s3d588",
-      "user_id": "ml7ml3i66cf286jhiok",
-      "order_number": "#889892240",
+      "_id": "ml84ukda1k5mgwj1u9h",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
       "items": [
         {
-          "menu_item_id": "menu009",
-          "menu_item_name": "Dimlama",
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
           "quantity": 1,
-          "price": 32000
+          "price": 10000
         }
       ],
-      "total": 32000,
+      "total": 10000,
+      "order_number": "#1",
       "status": "pending",
-      "createdAt": "2026-02-04T06:18:09.895Z",
-      "updatedAt": "2026-02-04T06:18:09.895Z"
+      "createdAt": "2026-02-04T14:38:33.118Z",
+      "updatedAt": "2026-02-04T14:38:33.118Z"
     },
     {
-      "_id": "ml7ngcfpcyj0awzh49",
-      "user_id": "ml7ml3i66cf286jhiok",
-      "order_number": "#696167709",
+      "_id": "ml84ut84nfw7gk9n1ys",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
       "items": [
         {
-          "menu_item_id": "1",
-          "menu_item_name": "Caesar Salad",
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
           "quantity": 1,
-          "price": 45000
+          "price": 10000
         }
       ],
-      "total": 45000,
+      "total": 10000,
+      "order_number": "#2",
       "status": "pending",
-      "createdAt": "2026-02-04T06:31:36.181Z",
-      "updatedAt": "2026-02-04T06:31:36.183Z"
+      "createdAt": "2026-02-04T14:38:44.596Z",
+      "updatedAt": "2026-02-04T14:38:44.596Z"
     },
     {
-      "_id": "ml7nhaxpc0fvj2hqfq",
-      "user_id": "ml7ml3i66cf286jhiok",
-      "order_number": "#740892362",
+      "_id": "ml84vb20hbz71xoe7w",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Koʻshkpoyon",
       "items": [
         {
-          "menu_item_id": "drink012",
-          "menu_item_name": "Smoothie (aralash mevali)",
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
           "quantity": 2,
-          "price": 22000
-        },
-        {
-          "menu_item_id": "menu009",
-          "menu_item_name": "Dimlama",
-          "quantity": 1,
-          "price": 32000
+          "price": 10000
         }
       ],
-      "total": 76000,
-      "status": "pending",
-      "createdAt": "2026-02-04T06:32:20.893Z",
-      "updatedAt": "2026-02-04T06:32:20.894Z"
+      "total": 20000,
+      "order_number": "#3",
+      "status": "completed",
+      "createdAt": "2026-02-04T14:39:07.704Z",
+      "updatedAt": "2026-02-04T15:50:56.025Z"
     },
     {
-      "_id": "ml7npyhfor1u26fdvtk",
-      "user_id": "ml7ml3i66cf286jhiok",
-      "order_number": "#144655435",
+      "_id": "ml881gdj4gzx2eh4sii",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Uy",
       "items": [
         {
-          "menu_item_id": "menu009",
-          "menu_item_name": "Dimlama",
-          "quantity": 110,
-          "price": 32000
-        },
-        {
-          "menu_item_id": "menu005",
-          "menu_item_name": "Somsa",
-          "quantity": 90,
-          "price": 8000
-        }
-      ],
-      "total": 4240000,
-      "status": "pending",
-      "createdAt": "2026-02-04T06:39:04.659Z",
-      "updatedAt": "2026-02-04T06:39:04.659Z"
-    },
-    {
-      "_id": "ml7nrkrgqkqe3e671t9",
-      "user_id": "ml7ml3i66cf286jhiok",
-      "order_number": "#220185006",
-      "items": [
-        {
-          "menu_item_id": "menu005",
-          "menu_item_name": "Somsa",
-          "quantity": 4,
-          "price": 8000
-        },
-        {
-          "menu_item_id": "menu009",
-          "menu_item_name": "Dimlama",
-          "quantity": 3,
-          "price": 32000
-        },
-        {
-          "menu_item_id": "menu013",
-          "menu_item_name": "Jiz",
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
           "quantity": 1,
-          "price": 40000
-        },
-        {
-          "menu_item_id": "menu014",
-          "menu_item_name": "Hasip",
-          "quantity": 1,
-          "price": 35000
-        },
-        {
-          "menu_item_id": "menu003",
-          "menu_item_name": "Manti",
-          "quantity": 1,
-          "price": 25000
-        },
-        {
-          "menu_item_id": "menu002",
-          "menu_item_name": "Lag'mon",
-          "quantity": 1,
-          "price": 28000
-        },
-        {
-          "menu_item_id": "menu006",
-          "menu_item_name": "Norin",
-          "quantity": 1,
-          "price": 38000
-        },
-        {
-          "menu_item_id": "menu001",
-          "menu_item_name": "Osh",
-          "quantity": 1,
-          "price": 35000
-        },
-        {
-          "menu_item_id": "menu015",
-          "menu_item_name": "Qovurma lag'mon",
-          "quantity": 1,
-          "price": 30000
-        },
-        {
-          "menu_item_id": "menu010",
-          "menu_item_name": "Qozon kabob",
-          "quantity": 1,
-          "price": 36000
-        },
-        {
-          "menu_item_id": "menu004",
-          "menu_item_name": "Shashlik",
-          "quantity": 1,
-          "price": 45000
-        },
-        {
-          "menu_item_id": "menu012",
-          "menu_item_name": "Tandir kabob",
-          "quantity": 1,
-          "price": 42000
-        },
-        {
-          "menu_item_id": "drink003",
-          "menu_item_name": "Ayron",
-          "quantity": 2,
-          "price": 8000
-        },
-        {
-          "menu_item_id": "drink013",
-          "menu_item_name": "Apelsin sharbati",
-          "quantity": 1,
-          "price": 15000
-        },
-        {
-          "menu_item_id": "drink009",
-          "menu_item_name": "Cappuccino",
-          "quantity": 2,
-          "price": 18000
-        },
-        {
-          "menu_item_id": "drink002",
-          "menu_item_name": "Choy (ko'k)",
-          "quantity": 2,
-          "price": 5000
-        },
-        {
-          "menu_item_id": "drink001",
-          "menu_item_name": "Choy (qora)",
-          "quantity": 1,
-          "price": 5000
-        },
-        {
-          "menu_item_id": "drink010",
-          "menu_item_name": "Espresso",
-          "quantity": 1,
-          "price": 12000
-        },
-        {
-          "menu_item_id": "drink004",
-          "menu_item_name": "Kompot",
-          "quantity": 1,
-          "price": 7000
-        },
-        {
-          "menu_item_id": "drink008",
-          "menu_item_name": "Latte",
-          "quantity": 1,
-          "price": 18000
-        },
-        {
-          "menu_item_id": "drink006",
-          "menu_item_name": "Limonad",
-          "quantity": 1,
-          "price": 12000
-        },
-        {
-          "menu_item_id": "drink015",
-          "menu_item_name": "Mineral suv",
-          "quantity": 1,
-          "price": 5000
-        },
-        {
-          "menu_item_id": "drink011",
-          "menu_item_name": "Moxito",
-          "quantity": 1,
-          "price": 20000
-        },
-        {
-          "menu_item_id": "drink014",
-          "menu_item_name": "Olma sharbati",
-          "quantity": 1,
-          "price": 15000
-        },
-        {
-          "menu_item_id": "drink005",
-          "menu_item_name": "Sharbat",
-          "quantity": 2,
           "price": 10000
         },
         {
-          "menu_item_id": "drink007",
-          "menu_item_name": "Qora kofe",
+          "menu_item_id": "ml87e3xmkhj58iw7r9p",
+          "menu_item_name": "Ichimlik",
           "quantity": 1,
-          "price": 15000
-        },
-        {
-          "menu_item_id": "drink012",
-          "menu_item_name": "Smoothie (aralash mevali)",
-          "quantity": 2,
-          "price": 22000
-        },
-        {
-          "menu_item_id": "menu011",
-          "menu_item_name": "Chuchvara",
-          "quantity": 3,
-          "price": 20000
-        },
-        {
-          "menu_item_id": "menu007",
-          "menu_item_name": "Mastava",
-          "quantity": 4,
-          "price": 22000
-        },
-        {
-          "menu_item_id": "menu008",
-          "menu_item_name": "Shurva",
-          "quantity": 4,
-          "price": 24000
+          "price": 5000
         }
       ],
-      "total": 976000,
+      "total": 15000,
+      "order_number": "#4",
+      "status": "confirmed",
+      "createdAt": "2026-02-04T16:07:53.384Z",
+      "updatedAt": "2026-02-05T13:08:53.851Z"
+    },
+    {
+      "_id": "ml9h0nw2tbq2nilnwml",
+      "user_id": "ml9h038al3eg8dmnj1",
+      "customer_name": "Ad",
+      "customer_phone": "+998896498389",
+      "delivery_address": "Uyga",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#5",
       "status": "pending",
-      "createdAt": "2026-02-04T06:40:20.188Z",
-      "updatedAt": "2026-02-04T06:40:20.188Z"
+      "createdAt": "2026-02-05T13:06:59.186Z",
+      "updatedAt": "2026-02-05T13:06:59.186Z"
+    },
+    {
+      "_id": "mlanu96gkh8yd4fuhdl",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 3,
+          "price": 10000
+        }
+      ],
+      "total": 30000,
+      "order_number": "#6",
+      "status": "confirmed",
+      "createdAt": "2026-02-06T09:05:43.672Z",
+      "updatedAt": "2026-02-06T09:07:14.018Z"
+    },
+    {
+      "_id": "mlao53bfy5aia9rw33b",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#7",
+      "status": "pending",
+      "createdAt": "2026-02-06T09:14:09.291Z",
+      "updatedAt": "2026-02-06T09:14:09.291Z"
+    },
+    {
+      "_id": "mlaoa7zkiokxwuyx0ar",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#8",
+      "status": "pending",
+      "createdAt": "2026-02-06T09:18:08.624Z",
+      "updatedAt": "2026-02-06T09:18:08.624Z"
+    },
+    {
+      "_id": "mlaofnjnvob45175mf",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 2,
+          "price": 10000
+        }
+      ],
+      "total": 20000,
+      "order_number": "#9",
+      "status": "pending",
+      "createdAt": "2026-02-06T09:22:22.067Z",
+      "updatedAt": "2026-02-06T09:22:22.067Z"
+    },
+    {
+      "_id": "mlaonmjx073rv3kdn0c2",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 3,
+          "price": 10000
+        }
+      ],
+      "total": 30000,
+      "order_number": "#10",
+      "status": "pending",
+      "createdAt": "2026-02-06T09:28:34.029Z",
+      "updatedAt": "2026-02-06T09:28:34.029Z"
+    },
+    {
+      "_id": "mlaooi8nekjxgleh8jw",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#11",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T09:29:15.095Z",
+      "updatedAt": "2026-02-06T11:33:04.347Z"
+    },
+    {
+      "_id": "mlaosqskca8thb4e2an",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#12",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T09:32:32.804Z",
+      "updatedAt": "2026-02-06T11:33:03.268Z"
+    },
+    {
+      "_id": "mlaot01qkudv6rxs0je",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#13",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T09:32:44.798Z",
+      "updatedAt": "2026-02-06T11:33:02.669Z"
+    },
+    {
+      "_id": "mlaox4fdfz2kqkrtv6o",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#14",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T09:35:57.097Z",
+      "updatedAt": "2026-02-06T11:33:01.372Z"
+    },
+    {
+      "_id": "mlap4rw5ul9m009vnm",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#15",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T09:41:54.101Z",
+      "updatedAt": "2026-02-06T11:33:00.225Z"
+    },
+    {
+      "_id": "mlap5cbfstdu1wns1v",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#16",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T09:42:20.571Z",
+      "updatedAt": "2026-02-06T11:32:59.605Z"
+    },
+    {
+      "_id": "mlap9dvu9jrlk748sgr",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#17",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T09:45:29.226Z",
+      "updatedAt": "2026-02-06T11:32:59.103Z"
+    },
+    {
+      "_id": "mlapargshw7286t5v39",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#18",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T09:46:33.484Z",
+      "updatedAt": "2026-02-06T11:32:58.610Z"
+    },
+    {
+      "_id": "mlapbrvzfb4sgwbpr19",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#19",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T09:47:20.687Z",
+      "updatedAt": "2026-02-06T11:32:57.976Z"
+    },
+    {
+      "_id": "mlapmun7i6mmsxxk6a",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Toshkent, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#20",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T09:55:57.475Z",
+      "updatedAt": "2026-02-06T11:32:57.035Z"
+    },
+    {
+      "_id": "mlaq3zcwxnullitj5zh",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#21",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T10:09:16.737Z",
+      "updatedAt": "2026-02-06T11:32:56.009Z"
+    },
+    {
+      "_id": "mlaqcretx9r8p3gpxxb",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#22",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T10:16:06.341Z",
+      "updatedAt": "2026-02-06T11:32:55.390Z"
+    },
+    {
+      "_id": "mlaqn6wo47xqbaydm16",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#23",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T10:24:12.984Z",
+      "updatedAt": "2026-02-06T11:32:54.756Z"
+    },
+    {
+      "_id": "mlaqnmj8j205udicns",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#24",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T10:24:33.236Z",
+      "updatedAt": "2026-02-06T11:32:53.383Z"
+    },
+    {
+      "_id": "mlaqol2sfty4w3ifkus",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#25",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T10:25:18.006Z",
+      "updatedAt": "2026-02-06T11:32:52.454Z"
+    },
+    {
+      "_id": "mlaqqevwjyz2ftixhbp",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#26",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T10:26:43.293Z",
+      "updatedAt": "2026-02-06T11:32:51.447Z"
+    },
+    {
+      "_id": "mlarxinf6dax7l2ogzp",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#27",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T11:00:14.379Z",
+      "updatedAt": "2026-02-06T11:32:49.837Z"
+    },
+    {
+      "_id": "mlarxut8paybm800jc",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#28",
+      "status": "confirmed",
+      "createdAt": "2026-02-06T11:00:30.141Z",
+      "updatedAt": "2026-02-06T11:32:47.956Z"
+    },
+    {
+      "_id": "mlas1lpqywc0aqy4e6c",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#29",
+      "status": "cancelled",
+      "createdAt": "2026-02-06T11:03:24.974Z",
+      "updatedAt": "2026-02-06T11:32:33.978Z"
+    },
+    {
+      "_id": "mlas22cj78upl956d2l",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#30",
+      "status": "completed",
+      "createdAt": "2026-02-06T11:03:46.531Z",
+      "updatedAt": "2026-02-06T11:32:29.890Z"
+    },
+    {
+      "_id": "mlas4v4tfzqfpnjxyib",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#31",
+      "status": "delivering",
+      "createdAt": "2026-02-06T11:05:57.149Z",
+      "updatedAt": "2026-02-06T11:28:22.787Z"
+    },
+    {
+      "_id": "mlas9e07rdzhy07fl5",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#32",
+      "status": "completed",
+      "createdAt": "2026-02-06T11:09:28.232Z",
+      "updatedAt": "2026-02-06T11:28:17.420Z"
+    },
+    {
+      "_id": "mlashmq07hw2etpypyg",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#33",
+      "status": "delivering",
+      "createdAt": "2026-02-06T11:15:52.776Z",
+      "updatedAt": "2026-02-06T11:28:13.326Z"
+    },
+    {
+      "_id": "mlasi1m8jylj39skg9",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#34",
+      "status": "delivering",
+      "createdAt": "2026-02-06T11:16:12.080Z",
+      "updatedAt": "2026-02-06T11:17:37.283Z"
+    },
+    {
+      "_id": "mlasw6ecxg7u3t7gcb",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#35",
+      "status": "confirmed",
+      "createdAt": "2026-02-06T11:27:11.460Z",
+      "updatedAt": "2026-02-06T11:27:21.399Z"
+    },
+    {
+      "_id": "mlatynll555pazala2i",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#36",
+      "status": "pending",
+      "createdAt": "2026-02-06T11:57:06.681Z",
+      "updatedAt": "2026-02-06T11:57:06.681Z"
+    },
+    {
+      "_id": "mlatyy2jrtg89bljsjq",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#37",
+      "status": "delivering",
+      "createdAt": "2026-02-06T11:57:20.251Z",
+      "updatedAt": "2026-02-06T14:04:29.046Z"
+    },
+    {
+      "_id": "mlayj7dage2ua9lmntv",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 1,
+          "price": 10000
+        }
+      ],
+      "total": 10000,
+      "order_number": "#38",
+      "status": "delivering",
+      "createdAt": "2026-02-06T14:05:03.887Z",
+      "updatedAt": "2026-02-06T14:05:16.296Z"
+    },
+    {
+      "_id": "mlc4vim4udr8d3uxntd",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Xxdfffrssserrrtrff",
+      "items": [
+        {
+          "menu_item_id": "mlc4uj6xc4ahqqbpjnd",
+          "menu_item_name": "Uds",
+          "quantity": 1,
+          "price": 7000
+        }
+      ],
+      "total": 7000,
+      "order_number": "#39",
+      "status": "pending",
+      "createdAt": "2026-02-07T09:50:22.204Z",
+      "updatedAt": "2026-02-07T09:50:22.204Z"
+    },
+    {
+      "_id": "mlc4wlxsszfjv47ucbp",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "mlc4uj6xc4ahqqbpjnd",
+          "menu_item_name": "Uds",
+          "quantity": 1,
+          "price": 7000
+        }
+      ],
+      "total": 7000,
+      "order_number": "#40",
+      "status": "pending",
+      "createdAt": "2026-02-07T09:51:13.168Z",
+      "updatedAt": "2026-02-07T09:51:13.168Z"
+    },
+    {
+      "_id": "mlc4xjouvjeuuv8ksfa",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Wththehetbeybybeb",
+      "items": [
+        {
+          "menu_item_id": "mlc4uj6xc4ahqqbpjnd",
+          "menu_item_name": "Uds",
+          "quantity": 1,
+          "price": 7000
+        }
+      ],
+      "total": 7000,
+      "order_number": "#41",
+      "status": "pending",
+      "createdAt": "2026-02-07T09:51:56.910Z",
+      "updatedAt": "2026-02-07T09:51:56.910Z"
+    },
+    {
+      "_id": "mlc4z1ee89iaaibmkk5",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Snyebrtb4yb4 yne",
+      "items": [
+        {
+          "menu_item_id": "mlc4uj6xc4ahqqbpjnd",
+          "menu_item_name": "Uds",
+          "quantity": 2,
+          "price": 7000
+        }
+      ],
+      "total": 14000,
+      "order_number": "#42",
+      "status": "pending",
+      "createdAt": "2026-02-07T09:53:06.518Z",
+      "updatedAt": "2026-02-07T09:53:06.519Z"
+    },
+    {
+      "_id": "mlc52mv8m4f3ekmmrcc",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Gijduvon, O'zbekiston",
+      "items": [
+        {
+          "menu_item_id": "mlc4uj6xc4ahqqbpjnd",
+          "menu_item_name": "Uds",
+          "quantity": 1,
+          "price": 7000
+        }
+      ],
+      "total": 7000,
+      "order_number": "#43",
+      "status": "completed",
+      "createdAt": "2026-02-07T09:55:54.308Z",
+      "updatedAt": "2026-02-07T11:08:06.767Z"
+    },
+    {
+      "_id": "mlc5ccf3w4ncwvscmwb",
+      "user_id": "ml7o8scuoprjwvjfsjm",
+      "customer_name": "admin",
+      "customer_phone": "+998777777777",
+      "delivery_address": "Bgwbntnwnfb2b",
+      "items": [
+        {
+          "menu_item_id": "ml7sjsou67cnp57qa9d",
+          "menu_item_name": "Test Taom",
+          "quantity": 3,
+          "price": 10000
+        }
+      ],
+      "total": 30000,
+      "order_number": "#44",
+      "status": "confirmed",
+      "createdAt": "2026-02-07T10:03:27.327Z",
+      "updatedAt": "2026-02-07T11:07:47.549Z"
     }
   ],
   "reservations": [],
   "messages": [],
   "testimonials": [],
-  "gallery": []
+  "gallery": [
+    {
+      "_id": "ml88lqcx45k1bamud1x",
+      "title": "Jssjjs",
+      "image_url": "/uploads/1770222219083-452886005.webp",
+      "thumbnail_url": "/uploads/1770222219083-452886005-thumb.webp",
+      "display_order": 0,
+      "createdAt": "2026-02-04T16:23:39.441Z",
+      "updatedAt": "2026-02-04T16:23:39.442Z"
+    }
+  ],
+  "counters": {
+    "orderNumber": 44
+  }
 }

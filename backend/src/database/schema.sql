@@ -97,6 +97,7 @@ CREATE TABLE orders (
   customer_name VARCHAR(255),
   customer_phone VARCHAR(50),
   customer_email VARCHAR(255),
+  delivery_address TEXT,
   total DECIMAL(10, 2) NOT NULL CHECK (total >= 0),
   status VARCHAR(20) DEFAULT 'pending' CHECK (status IN ('pending', 'confirmed', 'preparing', 'ready', 'completed', 'cancelled')),
   notes TEXT,

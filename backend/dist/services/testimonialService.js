@@ -1,7 +1,12 @@
 import testimonialRepository from '../repositories/testimonialRepository.js';
 const testimonialService = {
     async getAllTestimonials() {
+        // Admin uchun barcha fikrlarni qaytarish
         return await testimonialRepository.findAll();
+    },
+    async getApprovedTestimonials() {
+        // Foydalanuvchilar uchun faqat tasdiqlangan fikrlarni qaytarish
+        return await testimonialRepository.findApproved();
     },
     async getTestimonialById(id) {
         return await testimonialRepository.findById(id);

@@ -137,7 +137,7 @@ export default defineConfig({
     ],
     hmr: {
       protocol: 'ws',
-      host: 'localhost',
+      host: '10.113.216.99',
       port: 3003
     },
     proxy: {

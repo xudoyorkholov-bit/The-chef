@@ -544,7 +544,7 @@ const ProfilePage: React.FC = () => {
         </div>
 
         <div className="profile-menu">
-          <Card className="menu-item" onClick={() => handleMenuClick(t('profile.personalInfo'))}>
+          <Card className="profile-menu-item" onClick={() => handleMenuClick(t('profile.personalInfo'))}>
             <div className="menu-item-content">
               <div className="menu-icon-wrapper">
                 <svg className="menu-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -555,7 +555,7 @@ const ProfilePage: React.FC = () => {
             </div>
           </Card>
 
-          <Card className="menu-item" onClick={() => handleMenuClick(t('profile.addresses'))}>
+          <Card className="profile-menu-item" onClick={() => handleMenuClick(t('profile.addresses'))}>
             <div className="menu-item-content">
               <div className="menu-icon-wrapper">
                 <svg className="menu-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -566,7 +566,7 @@ const ProfilePage: React.FC = () => {
             </div>
           </Card>
 
-          <Card className="menu-item" onClick={() => handleMenuClick(t('profile.payment'))}>
+          <Card className="profile-menu-item" onClick={() => handleMenuClick(t('profile.payment'))}>
             <div className="menu-item-content">
               <div className="menu-icon-wrapper">
                 <svg className="menu-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -577,7 +577,7 @@ const ProfilePage: React.FC = () => {
             </div>
           </Card>
 
-          <Card className="menu-item" onClick={() => handleMenuClick(t('profile.settings'))}>
+          <Card className="profile-menu-item" onClick={() => handleMenuClick(t('profile.settings'))}>
             <div className="menu-item-content">
               <div className="menu-icon-wrapper">
                 <svg className="menu-icon" viewBox="0 0 24 24" fill="currentColor">

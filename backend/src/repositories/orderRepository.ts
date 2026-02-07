@@ -21,6 +21,20 @@ interface IOrder {
 }
 
 const orderRepository = {
+  // Counter initialization
+  initializeOrderCounter(): void {
+    // Get existing orders count to initialize counter
+    const orders = JsonDatabase.find('orders');
+    const existingCount = orders.length;
+    JsonDatabase.initializeCounter('orderNumber', existingCount);
+  },
+
+  // Generate next sequential order number
+  getNextOrderNumber(): string {
+    const nextNumber = JsonDatabase.incrementCounter('orderNumber');
+    return `#${nextNumber}`;
+  },
+
   // Foydalanuvchining buyurtmalarini olish
   async findByUserId(userId: string): Promise<IOrder[]> {
     const orders = JsonDatabase.find('orders', { user_id: userId });
@@ -41,7 +55,6 @@ const orderRepository = {
   // Yangi buyurtma yaratish
   async create(orderData: {
     user_id?: string;
-    order_number: string;
     customer_name?: string;
     customer_phone?: string;
     customer_email?: string;
@@ -55,8 +68,15 @@ const orderRepository = {
     status?: string;
     notes?: string;
   }): Promise<IOrder> {
+    // Initialize counter if this is the first order
+    this.initializeOrderCounter();
+    
+    // Generate sequential order number
+    const order_number = this.getNextOrderNumber();
+    
     return JsonDatabase.create('orders', {
       ...orderData,
+      order_number,
       status: orderData.status || 'pending'
     });
   },
@@ -69,13 +89,6 @@ const orderRepository = {
   // Buyurtmani o'chirish
   async delete(id: string): Promise<boolean> {
     return JsonDatabase.delete('orders', id);
-  },
-
-  // Buyurtma raqamini generatsiya qilish
-  generateOrderNumber(): string {
-    const timestamp = Date.now().toString().slice(-6);
-    const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
-    return `#${timestamp}${random}`;
   }
 };
 

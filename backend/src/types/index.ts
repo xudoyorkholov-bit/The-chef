@@ -5,7 +5,7 @@ export interface MenuItem {
   name: string;
   description: string;
   price: number;
-  category: 'appetizer' | 'main' | 'dessert' | 'beverage';
+  category: 'food' | 'beverage';
   image_url: string;
   available: boolean;
   created_at: Date;
@@ -86,7 +86,7 @@ export interface CreateMenuItemRequest {
   name: string;
   description: string;
   price: number;
-  category: 'appetizer' | 'main' | 'dessert' | 'beverage';
+  category: 'food' | 'beverage';
   image_url: string;
   available?: boolean;
 }
@@ -125,6 +125,7 @@ export interface CreateOrderRequest {
   customer_name?: string;
   customer_phone?: string;
   customer_email?: string;
+  delivery_address?: string;
   items: Array<{
     menu_item_id: string;
     menu_item_name: string;

@@ -22,6 +22,7 @@ interface Database {
   messages: any[];
   testimonials: any[];
   gallery: any[];
+  counters: { [key: string]: number };
 }
 
 const initialData: Database = {
@@ -31,7 +32,8 @@ const initialData: Database = {
   reservations: [],
   messages: [],
   testimonials: [],
-  gallery: []
+  gallery: [],
+  counters: {}
 };
 
 // Initialize database file if it doesn't exist
@@ -50,9 +52,9 @@ export class JsonDatabase {
   }
 
   // Generic CRUD operations
-  static find(collection: keyof Database, query: any = {}): any[] {
+  static find(collection: keyof Omit<Database, 'counters'>, query: any = {}): any[] {
     const db = this.readDb();
-    const items = db[collection];
+    const items = db[collection] as any[];
     
     if (Object.keys(query).length === 0) {
       return items;
@@ -63,16 +65,16 @@ export class JsonDatabase {
     });
   }
 
-  static findOne(collection: keyof Database, query: any): any | null {
+  static findOne(collection: keyof Omit<Database, 'counters'>, query: any): any | null {
     const results = this.find(collection, query);
     return results.length > 0 ? results[0] : null;
   }
 
-  static findById(collection: keyof Database, id: string): any | null {
+  static findById(collection: keyof Omit<Database, 'counters'>, id: string): any | null {
     return this.findOne(collection, { _id: id });
   }
 
-  static create(collection: keyof Database, data: any): any {
+  static create(collection: keyof Omit<Database, 'counters'>, data: any): any {
     const db = this.readDb();
     const newItem = {
       _id: this.generateId(),
@@ -81,36 +83,61 @@ export class JsonDatabase {
       updatedAt: new Date().toISOString()
     };
     
-    db[collection].push(newItem);
+    (db[collection] as any[]).push(newItem);
     this.writeDb(db);
     return newItem;
   }
 
-  static update(collection: keyof Database, id: string, data: any): any | null {
+  static update(collection: keyof Omit<Database, 'counters'>, id: string, data: any): any | null {
     const db = this.readDb();
-    const index = db[collection].findIndex((item: any) => item._id === id);
+    const items = db[collection] as any[];
+    const index = items.findIndex((item: any) => item._id === id);
     
     if (index === -1) return null;
     
-    db[collection][index] = {
-      ...db[collection][index],
+    items[index] = {
+      ...items[index],
       ...data,
       updatedAt: new Date().toISOString()
     };
     
     this.writeDb(db);
-    return db[collection][index];
+    return items[index];
   }
 
-  static delete(collection: keyof Database, id: string): boolean {
+  static delete(collection: keyof Omit<Database, 'counters'>, id: string): boolean {
     const db = this.readDb();
-    const index = db[collection].findIndex((item: any) => item._id === id);
+    const items = db[collection] as any[];
+    const index = items.findIndex((item: any) => item._id === id);
     
     if (index === -1) return false;
     
-    db[collection].splice(index, 1);
+    items.splice(index, 1);
     this.writeDb(db);
     return true;
+  }
+
+  // Counter operations
+  static getCounter(name: string): number {
+    const db = this.readDb();
+    return db.counters[name] || 0;
+  }
+
+  static incrementCounter(name: string): number {
+    const db = this.readDb();
+    const currentValue = db.counters[name] || 0;
+    const newValue = currentValue + 1;
+    db.counters[name] = newValue;
+    this.writeDb(db);
+    return newValue;
+  }
+
+  static initializeCounter(name: string, value: number): void {
+    const db = this.readDb();
+    if (db.counters[name] === undefined) {
+      db.counters[name] = value;
+      this.writeDb(db);
+    }
   }
 
   private static generateId(): string {

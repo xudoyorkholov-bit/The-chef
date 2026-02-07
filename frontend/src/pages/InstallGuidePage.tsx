@@ -403,6 +403,7 @@ const InstallGuidePage: React.FC = () => {
         <div className="install-steps">
           {tabContent.steps.map((step: any, index: number) => (
             <div key={index} className="install-step">
+              <div className="step-number">{index + 1}</div>
               <div className="step-icon">{step.icon}</div>
               <div className="step-content">
                 <h3>{step.title}</h3>
